@@ -18,13 +18,11 @@ public class Operador {
 	String apellido;
 	String direccion;
 	String correo;
-	String correocorporativo;
-	String fechanacimiento;
 	String telefono;
 	String matricula;
 
 	public Operador(int tipodocumento, int numerodocumento, String nombre, String apellido, String direccion,
-			String correo, String correocorporativo, String fechanacimiento, String telefono, String matricula) {
+			String correo,  String telefono, String matricula) {
 		super();
 		this.tipodocumento = tipodocumento;
 		this.numerodocumento = numerodocumento;
@@ -32,8 +30,6 @@ public class Operador {
 		this.apellido = apellido;
 		this.direccion = direccion;
 		this.correo = correo;
-		this.correocorporativo = correocorporativo;
-		this.fechanacimiento = fechanacimiento;
 		this.telefono = telefono;
 		this.matricula = matricula;
 	}
@@ -98,21 +94,6 @@ public class Operador {
 		this.correo = correo;
 	}
 
-	public String getCorreocorporativo() {
-		return correocorporativo;
-	}
-
-	public void setCorreocorporativo(String correocorporativo) {
-		this.correocorporativo = correocorporativo;
-	}
-
-	public String getFechanacimiento() {
-		return fechanacimiento;
-	}
-
-	public void setFechanacimiento(String fechanacimiento) {
-		this.fechanacimiento = fechanacimiento;
-	}
 
 	public String getTelefono() {
 		return telefono;
@@ -131,12 +112,12 @@ public class Operador {
 	}
 
 	public void create(int tipodocumento, int numerodocumento, String nombre, String apellido, String direccion,
-			String correo, String correocorporativo, String fechanacimiento, String telefono, String matricula) {
+			String correo, String telefono, String matricula) {
 
 		Connection dbConnection = null;
 		PreparedStatement pst = null;
 
-		String script = "insert into tblpromotores(tipodocumento,numerodocumento,nombre,apellido,direccion,correo,correocorporativo,fechanacimiento,telefono) values (?,?,?,?,?,?,?,?,?,?)";
+		String script = "insert into tbloperadores(tipodocumento,numerodocumento,nombres,apellidos,direccion,correo,telefono,matricula) values (?,?,?,?,?,?,?,?)";
 
 		try {
 			dbConnection = conector.conectarDB();
@@ -148,10 +129,8 @@ public class Operador {
 			pst.setString(4, apellido);
 			pst.setString(5, direccion);
 			pst.setString(6, correo);
-			pst.setString(7, correocorporativo);
-			pst.setString(8, fechanacimiento);
-			pst.setString(9, telefono);
-			pst.setString(10, matricula);
+			pst.setString(7, telefono);
+			pst.setString(8, matricula);
 			
 			
 

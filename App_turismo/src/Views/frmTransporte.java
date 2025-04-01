@@ -1,4 +1,4 @@
-package view;
+package Views;
 
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
@@ -11,21 +11,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import model.Cliente;
-import model.Vehiculo;
+import model.Transporte;
 
-public class FrmVehiculo extends JFrame {
+public class frmTransporte extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtMatricula;
-	private JTextField txtPlaca;
-	private JTextField txtMarca;
-	private JTextField txtPuestos;
-	private JTextField txtModelo;
-	private JTextField txtNumeroPromotor;
-	private JTextField txtCategoria;
-	private JTextField txtIdTipo;
+
 	/**
 	 * Launch the application.
 	 */
@@ -33,7 +25,7 @@ public class FrmVehiculo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrmVehiculo frame = new FrmVehiculo();
+					frmTransporte frame = new frmTransporte();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,8 +37,7 @@ public class FrmVehiculo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FrmVehiculo() {
-		setTitle("Vehiculo");
+	public frmTransporte() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -55,62 +46,60 @@ public class FrmVehiculo extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		txtMatricula = new JTextField();
+		JTextField txtMatricula = new JTextField();
 		txtMatricula.setBounds(108, 43, 86, 20);
 		contentPane.add(txtMatricula);
 		txtMatricula.setColumns(10);
 		
-		txtPlaca = new JTextField();
-		txtPlaca.setColumns(10);
-		txtPlaca.setBounds(108, 74, 86, 20);
-		contentPane.add(txtPlaca);
-		
-		txtMarca = new JTextField();
+		JTextField txtMarca = new JTextField();
 		txtMarca.setColumns(10);
 		txtMarca.setBounds(108, 105, 86, 20);
 		contentPane.add(txtMarca);
 		
-		txtPuestos = new JTextField();
-		txtPuestos.setColumns(10);
-		txtPuestos.setBounds(108, 136, 86, 20);
-		contentPane.add(txtPuestos);
+		JTextField txtAsientos = new JTextField();
+		txtAsientos.setColumns(10);
+		txtAsientos.setBounds(108, 136, 86, 20);
+		contentPane.add(txtAsientos);
 		
-		txtModelo = new JTextField();
+		JTextField txtModelo = new JTextField();
 		txtModelo.setColumns(10);
 		txtModelo.setBounds(108, 167, 86, 20);
 		contentPane.add(txtModelo);
 		
-		txtNumeroPromotor = new JTextField();
-		txtNumeroPromotor.setColumns(10);
-		txtNumeroPromotor.setBounds(108, 198, 86, 20);
-		contentPane.add(txtNumeroPromotor);
+		JTextField txtNumeroMotor = new JTextField();
+		txtNumeroMotor.setColumns(10);
+		txtNumeroMotor.setBounds(108, 198, 86, 20);
+		contentPane.add(txtNumeroMotor);
 		
-		txtCategoria = new JTextField();
+		JTextField txtCategoria = new JTextField();
 		txtCategoria.setColumns(10);
 		txtCategoria.setBounds(108, 229, 86, 20);
 		contentPane.add(txtCategoria);
 		
-		JButton btnNewButton = new JButton("guardar");
-		btnNewButton.addMouseListener(new MouseAdapter() {
+		JTextField txtIdTipoTransporte = new JTextField();
+		txtIdTipoTransporte.setColumns(10);
+		txtIdTipoTransporte.setBounds(318, 43, 86, 20);
+		contentPane.add(txtIdTipoTransporte);
+	
+		
+		JButton btnGuardar = new JButton("guardar");
+		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Vehiculo cr = new Vehiculo();
-				cr.create(Integer.parseInt(txtMatricula.getText()), Integer.parseInt(txtPlaca.getText()), txtMarca.getText(), Integer.parseInt(txtPuestos.getText()), txtModelo.getText(), txtNumeroPromotor.getText(), txtCategoria.getText(), Integer.parseInt(txtIdTipo.getText()));
+				Transporte cr = new Transporte();
+				cr.create(txtMatricula.getText(),txtMarca.getText(), Integer.parseInt(txtAsientos.getText()),
+						txtModelo.getText(),txtCategoria.getText(),txtNumeroMotor.getText(),Integer.parseInt(txtIdTipoTransporte.getText()));
 				
 			}
 		});
-		btnNewButton.setBounds(231, 136, 110, 52);
-		contentPane.add(btnNewButton);
+		btnGuardar.setBounds(231, 136, 110, 52);
+		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel = new JLabel("matricula:");
 		lblNewLabel.setBounds(25, 46, 62, 14);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("placa:");
-		lblNewLabel_1.setBounds(25, 77, 46, 14);
-		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblCorreo = new JLabel("marca:");
+		JLabel lblCorreo = new JLabel("Marca:");
 		lblCorreo.setBounds(25, 108, 46, 14);
 		contentPane.add(lblCorreo);
 		
@@ -122,22 +111,18 @@ public class FrmVehiculo extends JFrame {
 		lblDireccion.setBounds(25, 170, 60, 14);
 		contentPane.add(lblDireccion);
 		
-		JLabel lblWeb = new JLabel("numepromotor:");
-		lblWeb.setBounds(25, 201, 86, 14);
+		JLabel lblWeb = new JLabel("Numero de Motor");
+		lblWeb.setBounds(10, 201, 96, 14);
 		contentPane.add(lblWeb);
 		
 		JLabel lblIdcompania = new JLabel("categoria:");
 		lblIdcompania.setBounds(25, 232, 60, 14);
 		contentPane.add(lblIdcompania);
 		
-		JLabel lblIdtipo = new JLabel("idtipo:");
-		lblIdtipo.setBounds(212, 46, 62, 14);
+		JLabel lblIdtipo = new JLabel("id Tipo Transporte");
+		lblIdtipo.setBounds(212, 46, 96, 14);
 		contentPane.add(lblIdtipo);
 		
-		txtIdTipo = new JTextField();
-		txtIdTipo.setColumns(10);
-		txtIdTipo.setBounds(268, 43, 86, 20);
-		contentPane.add(txtIdTipo);
-	}
-
+	}	
 }
+

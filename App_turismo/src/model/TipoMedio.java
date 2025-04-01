@@ -46,7 +46,7 @@ public class TipoMedio {
 			Connection dbConnection = null;
 			PreparedStatement pst = null; 
 			
-			String script = "insert into tbltipomedio (nombre, observacion) values (?,?)";
+			String script = "insert into tbltipomedios(nombre,observaciones) values (?,?)";
 			
 			try {
 				dbConnection = conector.conectarDB();

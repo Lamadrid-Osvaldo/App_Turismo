@@ -22,7 +22,7 @@ public class Promotor {
 	public String telefono;
 	Conexion conector = new Conexion();
 	
-	public Promotor(String nombre, String apellido, int tipodocumento, int documento, String direccion,
+	public Promotor( int tipodocumento, int documento, String nombre, String Apellido ,String direccion,
 			String correopersonal, String correocorp, String fechanacimiento, String telefono) {
 		super();
 		this.nombre = nombre;
@@ -97,23 +97,24 @@ public class Promotor {
 		this.telefono = telefono;
 	}
 	
-	public void create(String nombre, String apellido, int tipodocumento, int documento, String direccion,
+	public void create(int tipodocumento, int documento, String nombre, String apellido ,String direccion,
 			String correopersonal, String correocorp, String fechanacimiento, String telefono) {
 			
 			
 			Connection dbConnection = null;
 			PreparedStatement pst = null; 
 			
-			String script = "insert into tblpromotores (nombre, apellido, tipodocumento, documento, direccion, correopersonal, correocorp, fechanacimiento, telefono) values (?,?,?,?,?,?,?,?,?)";
+			String script = "insert into tblpromotores(tipodocumento,numerodocumento,nombre,apellido,direccion,correo,correocorporativo,fechanacimiento,telefono) values (?,?,?,?,?,?,?,?,?)";
 			
 			try {
 				dbConnection = conector.conectarDB();
 				pst = dbConnection.prepareStatement(script);
 				
-				pst.setString(1, nombre);
-				pst.setString(2, apellido);
-				pst.setInt(3, tipodocumento);
-				pst.setInt(4, documento);
+				
+				pst.setInt(1, tipodocumento);
+				pst.setInt(2, documento);
+				pst.setString(3, nombre);
+				pst.setString(4, apellido);
 				pst.setString(5, direccion);
 				pst.setString(6, correopersonal);
 				pst.setString(7, correocorp);

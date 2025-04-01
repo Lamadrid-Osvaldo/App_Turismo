@@ -1,4 +1,4 @@
-package view;
+package Views;
 
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
@@ -11,19 +11,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import model.Agencias;
 import model.Compania;
 
-public class FrmCompania extends JFrame {
+public class frmCompania extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtRazonSocial;
-	private JTextField txtDireccion;
-	private JTextField txtTelefono;
-	private JTextField txtFechaCreacion;
-	private JTextField txtCorreo;
-	private JTextField txtWeb;
+
 	/**
 	 * Launch the application.
 	 */
@@ -31,7 +25,7 @@ public class FrmCompania extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrmCompania frame = new FrmCompania();
+					frmCompania frame = new frmCompania();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,42 +37,41 @@ public class FrmCompania extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FrmCompania() {
-		setTitle("Compañia");
+	public frmCompania() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+contentPane.setLayout(null);
 		
-		txtRazonSocial = new JTextField();
-		txtRazonSocial.setColumns(10);
-		txtRazonSocial.setBounds(108, 33, 86, 20);
-		contentPane.add(txtRazonSocial);
+		JTextField txtNombre = new JTextField();
+		txtNombre.setColumns(10);
+		txtNombre.setBounds(108, 33, 86, 20);
+		contentPane.add(txtNombre);
 		
-		txtDireccion = new JTextField();
+		JTextField txtDireccion = new JTextField();
 		txtDireccion.setColumns(10);
 		txtDireccion.setBounds(108, 64, 86, 20);
 		contentPane.add(txtDireccion);
 		
-		txtTelefono = new JTextField();
+		JTextField txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
 		txtTelefono.setBounds(108, 95, 86, 20);
 		contentPane.add(txtTelefono);
 		
-		txtFechaCreacion = new JTextField();
+		JTextField txtFechaCreacion = new JTextField();
 		txtFechaCreacion.setColumns(10);
 		txtFechaCreacion.setBounds(108, 126, 86, 20);
 		contentPane.add(txtFechaCreacion);
 		
-		txtCorreo = new JTextField();
+		JTextField txtCorreo = new JTextField();
 		txtCorreo.setColumns(10);
 		txtCorreo.setBounds(108, 157, 86, 20);
 		contentPane.add(txtCorreo);
 		
-		txtWeb = new JTextField();
+		JTextField txtWeb = new JTextField();
 		txtWeb.setColumns(10);
 		txtWeb.setBounds(108, 188, 86, 20);
 		contentPane.add(txtWeb);
@@ -89,7 +82,7 @@ public class FrmCompania extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				
 				Compania cr = new Compania();
-				cr.create(txtRazonSocial.getText(), txtCorreo.getText(), txtTelefono.getText(), 
+				cr.create(txtNombre.getText(), txtCorreo.getText(), txtTelefono.getText(), 
 						txtDireccion.getText(), txtWeb.getText(),txtFechaCreacion.getText());
 				
 			}
@@ -97,7 +90,7 @@ public class FrmCompania extends JFrame {
 		btnNewButton.setBounds(261, 83, 110, 29);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel_1 = new JLabel("razonsocial:");
+		JLabel lblNewLabel_1 = new JLabel("Nombre: ");
 		lblNewLabel_1.setBounds(38, 36, 74, 14);
 		contentPane.add(lblNewLabel_1);
 		

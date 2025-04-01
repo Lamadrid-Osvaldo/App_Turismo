@@ -1,29 +1,22 @@
-package view;
+package Views;
 
 import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import model.Agencias;
 
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-public class FrmAgencia extends JFrame {
+public class frmAgencia extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtNombre;
-	private JTextField txtCorreo;
-	private JTextField txtTelefono;
-	private JTextField txtDireccion;
-	private JTextField txtWeb;
-	private JTextField txtIdCompañia;
 
 	/**
 	 * Launch the application.
@@ -32,7 +25,7 @@ public class FrmAgencia extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrmAgencia frame = new FrmAgencia();
+					frmAgencia frame = new frmAgencia();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,48 +37,47 @@ public class FrmAgencia extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FrmAgencia() {
-		setTitle("Agencia ");
+	public frmAgencia() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+contentPane.setLayout(null);
 		
-		txtNombre = new JTextField();
+		JTextField txtNombre = new JTextField();
 		txtNombre.setColumns(10);
 		txtNombre.setBounds(108, 74, 86, 20);
 		contentPane.add(txtNombre);
 		
-		txtCorreo = new JTextField();
+		JTextField txtCorreo = new JTextField();
 		txtCorreo.setColumns(10);
 		txtCorreo.setBounds(108, 105, 86, 20);
 		contentPane.add(txtCorreo);
 		
-		txtTelefono = new JTextField();
+		JTextField txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
 		txtTelefono.setBounds(108, 136, 86, 20);
 		contentPane.add(txtTelefono);
 		
-		txtDireccion = new JTextField();
+		JTextField txtDireccion = new JTextField();
 		txtDireccion.setColumns(10);
 		txtDireccion.setBounds(108, 167, 86, 20);
 		contentPane.add(txtDireccion);
 		
-		txtWeb = new JTextField();
+		JTextField txtWeb = new JTextField();
 		txtWeb.setColumns(10);
 		txtWeb.setBounds(108, 198, 86, 20);
 		contentPane.add(txtWeb);
 		
-		txtIdCompañia = new JTextField();
+		JTextField txtIdCompañia = new JTextField();
 		txtIdCompañia.setColumns(10);
 		txtIdCompañia.setBounds(108, 229, 86, 20);
 		contentPane.add(txtIdCompañia);
 		
-		JButton btnNewButton = new JButton("guardar");
-		btnNewButton.addMouseListener(new MouseAdapter() {
+		JButton btnGuardar = new JButton("guardar");
+		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
@@ -95,8 +87,8 @@ public class FrmAgencia extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(249, 67, 111, 35);
-		contentPane.add(btnNewButton);
+		btnGuardar.setBounds(249, 67, 111, 35);
+		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre:");
 		lblNewLabel_1.setBounds(27, 77, 62, 14);
@@ -122,4 +114,5 @@ public class FrmAgencia extends JFrame {
 		lblIdcompania.setBounds(29, 232, 69, 14);
 		contentPane.add(lblIdcompania);
 	}
+
 }

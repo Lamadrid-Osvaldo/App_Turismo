@@ -46,7 +46,7 @@ public class TipoTransporte {
 			Connection dbConnection = null;
 			PreparedStatement pst = null; 
 			
-			String script = "insert into tbltipotransporte (nombre, observacion) values (?,?)";
+			String script = "insert into tbltipotransportes(nombre, observaciones) values (?, ?)";
 			
 			try {
 				dbConnection = conector.conectarDB();
