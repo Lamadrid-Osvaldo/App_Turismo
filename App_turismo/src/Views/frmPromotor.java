@@ -17,6 +17,7 @@ public class frmPromotor extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTextField txtIdPromotor;
 
 	/**
 	 * Launch the application.
@@ -38,8 +39,9 @@ public class frmPromotor extends JFrame {
 	 * Create the frame.
 	 */
 	public frmPromotor() {
+		setTitle("Promotor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 461, 319);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -136,10 +138,43 @@ contentPane.setLayout(null);
 						txtApellido.getText() , txtDireccion.getText(), txtCorreoPersonal.getText(),
 						txtCorreoCorp.getText(), txtFechaNacimiento.getText(), txtTelefono.getText());
 				
+				txtTipoDocumento.setText("");
+				txtDocumento.setText("");
+				txtNombre.setText("");
+				txtApellido.setText("");
+				txtDireccion.setText("");
+				txtCorreoPersonal.setText("");
+				txtCorreoCorp.setText("");
+				txtFechaNacimiento.setText("");
+				txtTelefono.setText("");
 			}
 		});
-		btnGuardar.setBounds(238, 150, 110, 37);
+		btnGuardar.setBounds(269, 139, 110, 37);
 		contentPane.add(btnGuardar);
+		
+		txtIdPromotor = new JTextField();
+		txtIdPromotor.setBounds(179, 232, 86, 20);
+		contentPane.add(txtIdPromotor);
+		txtIdPromotor.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Id promotor");
+		lblNewLabel.setBounds(66, 235, 73, 14);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Promotor promotor = new Promotor();
+				
+				promotor.delete(Integer.parseInt(txtIdPromotor.getText()));
+				
+				txtIdPromotor.setText("");
+				
+			}
+		});
+		btnEliminar.setBounds(286, 200, 110, 37);
+		contentPane.add(btnEliminar);
 		
 		
 	}

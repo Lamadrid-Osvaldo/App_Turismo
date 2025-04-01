@@ -10,7 +10,7 @@ import controler.Conexion;
 
 public class TipoMedio {
 
-	
+	public int idTipoMedio;
 	public String nombre;
 	public String observacion;
 	Conexion conector = new Conexion();
@@ -63,5 +63,30 @@ public class TipoMedio {
 				System.out.println(e.getMessage());
 			}
 		}
+	public void delete(int idTipoMedio) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "DELETE FROM tbltipomedios WHERE idtipomedios = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setInt(1, idTipoMedio);
+			
+			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No."+idTipoMedio+ " ?" );
+			
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Registro No. "+idTipoMedio+" Eliminado");
+			}
+			
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 	
 }

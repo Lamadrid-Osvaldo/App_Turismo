@@ -16,12 +16,12 @@ public class Agencias {
 	public String direccion;
 	public String web;
 	public int idcompania;
+	public int idagencia;
 	Conexion conector = new Conexion();
 	
 	
 	
-	public Agencias(String nombre, String correo, String telefono, String direccion, String web, int idcompania,
-			Conexion conector) {
+	public Agencias(String nombre, String correo, String telefono, String direccion, String web, int idcompania) {
 		super();
 		this.nombre = nombre;
 		this.correo = correo;
@@ -29,7 +29,7 @@ public class Agencias {
 		this.direccion = direccion;
 		this.web = web;
 		this.idcompania = idcompania;
-		this.conector = conector;
+		
 	}
 
 
@@ -103,7 +103,33 @@ public class Agencias {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+	public void delete(int idagencia) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "DELETE FROM tblagencias WHERE idagencia = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setInt(1, idagencia);
+			
+			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No."+idagencia+ " ?" );
+			
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Registro No. "+idagencia+" Eliminado");
+			}
+			
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+	}
 	
 
 	

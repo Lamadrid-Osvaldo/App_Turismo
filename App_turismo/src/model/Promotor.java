@@ -10,7 +10,7 @@ import controler.Conexion;
 
 public class Promotor {
 
-	
+	public int idPromotor;
 	public String nombre;
 	public String apellido;
 	public int tipodocumento; 
@@ -128,6 +128,31 @@ public class Promotor {
 				System.out.println(e.getMessage());
 			}
 		}
+	public void delete(int idPromotor) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "DELETE FROM tblpromotores WHERE idpromotor = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setInt(1, idPromotor);
+			
+			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No."+idPromotor+ " ?" );
+			
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Registro No. "+idPromotor+" Eliminado");
+			}
+			
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 	
 	
 }

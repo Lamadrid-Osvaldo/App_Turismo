@@ -17,6 +17,7 @@ public class frmAgencia extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTextField txtIdAgencia;
 
 	/**
 	 * Launch the application.
@@ -85,6 +86,12 @@ contentPane.setLayout(null);
 				agencia.create(txtNombre.getText(), txtCorreo.getText(), txtTelefono.getText(), txtDireccion.getText(),
 						txtWeb.getText(), Integer.parseInt(txtIdCompañia.getText()));
 				
+				txtNombre.setText("");
+				txtCorreo.setText("");
+				txtTelefono.setText("");
+				txtDireccion.setText("");
+				txtWeb.setText("");
+				txtIdCompañia.setText("");
 			}
 		});
 		btnGuardar.setBounds(249, 67, 111, 35);
@@ -113,6 +120,30 @@ contentPane.setLayout(null);
 		JLabel lblIdcompania = new JLabel("Idcompañia:");
 		lblIdcompania.setBounds(29, 232, 69, 14);
 		contentPane.add(lblIdcompania);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Agencias agencia = new Agencias();
+				
+				agencia.delete(Integer.parseInt(txtIdAgencia.getText()));
+				
+				txtIdAgencia.setText("");
+				
+			}
+		});
+		btnEliminar.setBounds(249, 135, 111, 35);
+		contentPane.add(btnEliminar);
+		
+		txtIdAgencia = new JTextField();
+		txtIdAgencia.setBounds(261, 229, 86, 20);
+		contentPane.add(txtIdAgencia);
+		txtIdAgencia.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Id Agencia :");
+		lblNewLabel.setBounds(261, 201, 71, 14);
+		contentPane.add(lblNewLabel);
 	}
 
 }

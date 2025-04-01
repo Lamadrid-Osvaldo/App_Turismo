@@ -17,6 +17,7 @@ public class frmCliente extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTextField txtIdCliente;
 
 	/**
 	 * Launch the application.
@@ -38,8 +39,9 @@ public class frmCliente extends JFrame {
 	 * Create the frame.
 	 */
 	public frmCliente() {
+		setTitle("Clientes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 506, 345);
+		setBounds(100, 100, 536, 387);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -131,9 +133,20 @@ contentPane.setLayout(null);
 						txtApellido.getText(), txtEps.getText(), txtAlergias.getText(),txtFechaNacimiento.getText(),
 						txtCorreo.getText(), txtEstadoCivil.getText(), txtTelefonico.getText(), txtDireccion.getText());
 				
+				txtTipoDocumento.setText("");
+				txtDocumento.setText("");
+				txtNombre.setText("");
+				txtApellido.setText("");
+				txtEps.setText("");
+				txtAlergias.setText("");
+				txtFechaNacimiento.setText("");
+				txtCorreo.setText("");
+				txtEstadoCivil.setText("");
+				txtTelefonico.setText("");
+				txtDireccion.setText("");
 			}
 		});
-		btnNewButton.setBounds(284, 204, 112, 34);
+		btnNewButton.setBounds(343, 190, 112, 34);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre:");
@@ -159,6 +172,29 @@ contentPane.setLayout(null);
 		JLabel lblIdcompania = new JLabel("telefonico:");
 		lblIdcompania.setBounds(42, 190, 60, 14);
 		contentPane.add(lblIdcompania);
+		
+		txtIdCliente = new JTextField();
+		txtIdCliente.setBounds(112, 271, 86, 20);
+		contentPane.add(txtIdCliente);
+		txtIdCliente.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("ID Cliente");
+		lblNewLabel.setBounds(27, 274, 62, 14);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Cliente cliente = new Cliente();
+				
+				cliente.delete(Integer.parseInt(txtIdCliente.getText()));
+				
+				txtIdCliente.setText("");
+			}
+		});
+		btnEliminar.setBounds(343, 264, 112, 34);
+		contentPane.add(btnEliminar);
 		
 		
 		

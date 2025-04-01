@@ -21,6 +21,7 @@ public class Cliente {
 	public String estadocivil;
 	public String direccion ;
 	public String telefono ;
+	public int idcliente;
 	Conexion conector = new Conexion();
 	
 	public Cliente(int tipodocumento, int documento, String nombre, String apellidos, String eps, String alergias,
@@ -142,6 +143,31 @@ public class Cliente {
 			pst.executeUpdate();
 			
 			JOptionPane.showConfirmDialog(null, "registro con exito");
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	public void delete(int idcliente) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "DELETE FROM tblclientes WHERE idclientes = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setInt(1, idcliente);
+			
+			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No."+idcliente+ " ?" );
+			
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Registro No. "+idcliente+" Eliminado");
+			}
+			
+			
 		}catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
