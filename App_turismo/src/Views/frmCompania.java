@@ -17,6 +17,7 @@ public class frmCompania extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTextField txtIdCompania;
 
 	/**
 	 * Launch the application.
@@ -39,7 +40,7 @@ public class frmCompania extends JFrame {
 	 */
 	public frmCompania() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 465, 324);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -85,9 +86,16 @@ contentPane.setLayout(null);
 				cr.create(txtNombre.getText(), txtCorreo.getText(), txtTelefono.getText(), 
 						txtDireccion.getText(), txtWeb.getText(),txtFechaCreacion.getText());
 				
+				txtNombre.setText("");
+				txtCorreo.setText("");
+				txtTelefono.setText("");
+				txtDireccion.setText("");
+				txtWeb.setText("");
+				txtFechaCreacion.setText("");
+				
 			}
 		});
-		btnNewButton.setBounds(261, 83, 110, 29);
+		btnNewButton.setBounds(270, 52, 110, 29);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre: ");
@@ -113,6 +121,28 @@ contentPane.setLayout(null);
 		JLabel lblIdcompania = new JLabel("web:");
 		lblIdcompania.setBounds(76, 191, 60, 14);
 		contentPane.add(lblIdcompania);
+		
+		txtIdCompania = new JTextField();
+		txtIdCompania.setBounds(169, 229, 86, 20);
+		contentPane.add(txtIdCompania);
+		txtIdCompania.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Id Compania");
+		lblNewLabel.setBounds(62, 232, 74, 14);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Compania compania = new Compania();
+				
+				compania.delete(Integer.parseInt(txtIdCompania.getText()));
+				txtIdCompania.setText("");
+				
+			}
+		});
+		btnEliminar.setBounds(270, 160, 110, 29);
+		contentPane.add(btnEliminar);
 	}
-
 }

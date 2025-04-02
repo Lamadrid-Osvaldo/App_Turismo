@@ -119,5 +119,31 @@ public class Transporte {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void delete(String matricula) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "DELETE FROM tbltransporte WHERE matricula = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setString(1, matricula);
+			
+			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No."+matricula+ " ?" );
+			
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Registro No. "+matricula+" Eliminado");
+			}
+			
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

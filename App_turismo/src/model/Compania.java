@@ -10,7 +10,7 @@ import controler.Conexion;
 
 public class Compania {
 
-	
+	public int idCompania;
 	public String nombre;
 	public String direccion;
 	public String telefono;
@@ -114,5 +114,29 @@ public class Compania {
 				System.out.println(e.getMessage());
 			}
 		}
-	
+	public void delete(int idCompania) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "DELETE FROM tblcompania WHERE idcompania = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setInt(1, idCompania);
+			
+			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No."+idCompania+ " ?" );
+			
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Registro No. "+idCompania+" Eliminado");
+			}
+			
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

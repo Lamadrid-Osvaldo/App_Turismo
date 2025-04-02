@@ -21,6 +21,7 @@ public class frmMedio extends JFrame {
 	private JTextField txtNombre;
 	private JTextField txtObservaciones;
 	private JTextField txtIdTipoMedios;
+	private JTextField txtIdMedios;
 
 	/**
 	 * Launch the application.
@@ -86,11 +87,39 @@ public class frmMedio extends JFrame {
 				
 				medio.create(txtNombre.getText(), txtObservaciones.getText(), Integer.parseInt(txtIdTipoMedios.getText()));
 				
+				txtNombre.setText("");
+				txtObservaciones.setText("");
+				txtIdTipoMedios.setText("");
 				
 			}
 		});
-		btnGuardar.setBounds(336, 129, 121, 54);
+		btnGuardar.setBounds(345, 87, 121, 54);
 		contentPane.add(btnGuardar);
+		
+		txtIdMedios = new JTextField();
+		txtIdMedios.setBounds(151, 241, 86, 20);
+		contentPane.add(txtIdMedios);
+		txtIdMedios.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("Id Medios");
+		lblNewLabel_3.setBounds(53, 244, 61, 14);
+		contentPane.add(lblNewLabel_3);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Medio medio = new Medio();
+				
+				medio.delete(Integer.parseInt(txtIdMedios.getText()));
+				
+				txtIdMedios.setText("");
+				
+			}
+			
+		});
+		btnEliminar.setBounds(357, 213, 105, 48);
+		contentPane.add(btnEliminar);
 		
 		
 	}

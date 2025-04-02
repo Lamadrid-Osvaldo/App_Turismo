@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import controler.Conexion;
 
 public class Paquete {
-
+	int codigo;
 	int iddestino;
 	int idorigen;
 	String fechaventa;
@@ -184,6 +184,32 @@ public class Paquete {
 
 			JOptionPane.showConfirmDialog(null, "registro con exito");
 		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void delete(int codigo) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "DELETE FROM tblpaquetes WHERE codigo = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setInt(1, codigo);
+			
+			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No."+codigo+ " ?" );
+			
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Registro No. "+codigo+" Eliminado");
+			}
+			
+			
+		}catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}

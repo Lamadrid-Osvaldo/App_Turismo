@@ -90,9 +90,17 @@ public class frmTransporte extends JFrame {
 				cr.create(txtMatricula.getText(),txtMarca.getText(), Integer.parseInt(txtAsientos.getText()),
 						txtModelo.getText(),txtCategoria.getText(),txtNumeroMotor.getText(),Integer.parseInt(txtIdTipoTransporte.getText()));
 				
+				txtMatricula.setText("");
+				txtMarca.setText("");
+				txtAsientos.setText("");
+				txtModelo.setText("");
+				txtCategoria.setText("");
+				txtNumeroMotor.setText("");
+				txtIdTipoTransporte.setText("");
+				
 			}
 		});
-		btnGuardar.setBounds(231, 136, 110, 52);
+		btnGuardar.setBounds(294, 89, 110, 52);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel = new JLabel("matricula:");
@@ -122,6 +130,19 @@ public class frmTransporte extends JFrame {
 		JLabel lblIdtipo = new JLabel("id Tipo Transporte");
 		lblIdtipo.setBounds(212, 46, 96, 14);
 		contentPane.add(lblIdtipo);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Transporte transporte = new Transporte();
+				transporte.delete(txtMatricula.getText());
+				txtMatricula.setText("");
+				
+			}
+		});
+		btnEliminar.setBounds(288, 170, 116, 48);
+		contentPane.add(btnEliminar);
 		
 	}	
 }

@@ -31,6 +31,9 @@ public class frmPaquete extends JFrame {
 	private JTextField txtIdmedios;
 	private JTextField txtIdpromotor;
 	private JTextField txtPrecio;
+	private JTextField txtCodigo;
+	private JLabel lblNewLabel_13;
+	private JButton btnEliminar;
 
 	/**
 	 * Launch the application.
@@ -52,6 +55,7 @@ public class frmPaquete extends JFrame {
 	 * Create the frame.
 	 */
 	public frmPaquete() {
+		setTitle("Paquete");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 691, 495);
 		contentPane = new JPanel();
@@ -67,114 +71,114 @@ public class frmPaquete extends JFrame {
 		
 		txtIdOrigen = new JTextField();
 		txtIdOrigen.setColumns(10);
-		txtIdOrigen.setBounds(251, 58, 86, 20);
+		txtIdOrigen.setBounds(540, 27, 86, 20);
 		contentPane.add(txtIdOrigen);
 		
 		txtFechaventa = new JTextField();
 		txtFechaventa.setColumns(10);
-		txtFechaventa.setBounds(251, 89, 86, 20);
+		txtFechaventa.setBounds(251, 65, 86, 20);
 		contentPane.add(txtFechaventa);
 		
 		txtHoraventa = new JTextField();
 		txtHoraventa.setColumns(10);
-		txtHoraventa.setBounds(251, 120, 86, 20);
+		txtHoraventa.setBounds(540, 65, 86, 20);
 		contentPane.add(txtHoraventa);
 		
 		txtFechaejecucion = new JTextField();
 		txtFechaejecucion.setColumns(10);
-		txtFechaejecucion.setBounds(251, 151, 86, 20);
+		txtFechaejecucion.setBounds(251, 102, 86, 20);
 		contentPane.add(txtFechaejecucion);
 		
 		txtHorasalida = new JTextField();
 		txtHorasalida.setColumns(10);
-		txtHorasalida.setBounds(251, 182, 86, 20);
+		txtHorasalida.setBounds(540, 96, 86, 20);
 		contentPane.add(txtHorasalida);
 		
 		txtObservaciones = new JTextField();
 		txtObservaciones.setColumns(10);
-		txtObservaciones.setBounds(251, 213, 86, 20);
+		txtObservaciones.setBounds(251, 138, 86, 20);
 		contentPane.add(txtObservaciones);
 		
 		txtIdclientes = new JTextField();
 		txtIdclientes.setColumns(10);
-		txtIdclientes.setBounds(251, 248, 86, 20);
+		txtIdclientes.setBounds(540, 138, 86, 20);
 		contentPane.add(txtIdclientes);
 		
 		txtIdagencia = new JTextField();
 		txtIdagencia.setColumns(10);
-		txtIdagencia.setBounds(251, 282, 86, 20);
+		txtIdagencia.setBounds(251, 174, 86, 20);
 		contentPane.add(txtIdagencia);
 		
 		txtMatricula = new JTextField();
 		txtMatricula.setColumns(10);
-		txtMatricula.setBounds(251, 313, 86, 20);
+		txtMatricula.setBounds(540, 174, 86, 20);
 		contentPane.add(txtMatricula);
 		
 		txtIdmedios = new JTextField();
 		txtIdmedios.setColumns(10);
-		txtIdmedios.setBounds(251, 344, 86, 20);
+		txtIdmedios.setBounds(251, 211, 86, 20);
 		contentPane.add(txtIdmedios);
 		
-		JLabel lblNewLabel = new JLabel("id destino");
+		JLabel lblNewLabel = new JLabel("Id Destino");
 		lblNewLabel.setBounds(68, 30, 72, 14);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("idorigen");
-		lblNewLabel_1.setBounds(68, 61, 72, 14);
+		JLabel lblNewLabel_1 = new JLabel("Id Origen");
+		lblNewLabel_1.setBounds(437, 30, 72, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		txtIdpromotor = new JTextField();
-		txtIdpromotor.setBounds(251, 375, 86, 20);
+		txtIdpromotor.setBounds(540, 211, 86, 20);
 		contentPane.add(txtIdpromotor);
 		txtIdpromotor.setColumns(10);
 		
 		txtPrecio = new JTextField();
-		txtPrecio.setBounds(251, 406, 86, 20);
+		txtPrecio.setBounds(251, 253, 86, 20);
 		contentPane.add(txtPrecio);
 		txtPrecio.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Fecha de Venta");
-		lblNewLabel_2.setBounds(68, 92, 103, 14);
+		lblNewLabel_2.setBounds(68, 68, 103, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Hora de venta");
-		lblNewLabel_3.setBounds(68, 123, 86, 14);
+		lblNewLabel_3.setBounds(423, 68, 86, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Fecha de ejecucion");
-		lblNewLabel_4.setBounds(68, 154, 103, 14);
+		lblNewLabel_4.setBounds(68, 105, 103, 14);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Hora de salida");
-		lblNewLabel_5.setBounds(68, 185, 92, 14);
+		lblNewLabel_5.setBounds(423, 105, 92, 14);
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Observaciones");
-		lblNewLabel_6.setBounds(68, 216, 103, 14);
+		lblNewLabel_6.setBounds(68, 141, 103, 14);
 		contentPane.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("Id Cliente");
-		lblNewLabel_7.setBounds(68, 251, 72, 14);
+		lblNewLabel_7.setBounds(423, 141, 72, 14);
 		contentPane.add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_8 = new JLabel("Id Agencia");
-		lblNewLabel_8.setBounds(68, 285, 72, 14);
+		lblNewLabel_8.setBounds(68, 177, 72, 14);
 		contentPane.add(lblNewLabel_8);
 		
 		JLabel lblNewLabel_9 = new JLabel("Matricula");
-		lblNewLabel_9.setBounds(68, 316, 72, 14);
+		lblNewLabel_9.setBounds(423, 177, 72, 14);
 		contentPane.add(lblNewLabel_9);
 		
 		JLabel lblNewLabel_10 = new JLabel("Id Medios");
-		lblNewLabel_10.setBounds(68, 347, 60, 14);
+		lblNewLabel_10.setBounds(68, 214, 60, 14);
 		contentPane.add(lblNewLabel_10);
 		
 		JLabel lblNewLabel_11 = new JLabel("Id Promotor");
-		lblNewLabel_11.setBounds(68, 378, 72, 14);
+		lblNewLabel_11.setBounds(423, 214, 72, 14);
 		contentPane.add(lblNewLabel_11);
 		
 		JLabel lblNewLabel_12 = new JLabel("Precio");
-		lblNewLabel_12.setBounds(68, 409, 46, 14);
+		lblNewLabel_12.setBounds(68, 256, 46, 14);
 		contentPane.add(lblNewLabel_12);
 		
 		JButton btnGuardar = new JButton("Guardar");
@@ -188,10 +192,48 @@ public class frmPaquete extends JFrame {
 						Integer.parseInt(txtIdagencia.getText()), txtMatricula.getText(),Integer.parseInt(txtIdmedios.getText()),
 						Integer.parseInt(txtIdpromotor.getText()),txtPrecio.getText());
 				
+				txtIdDestino.setText("");
+				txtIdOrigen.setText("");
+				txtFechaventa.setText("");
+				txtHoraventa.setText("");
+				txtFechaejecucion.setText("");
+				txtHorasalida.setText("");
+				txtObservaciones.setText("");
+				txtIdclientes.setText("");
+				txtIdagencia.setText("");
+				txtMatricula.setText("");
+				txtIdmedios.setText("");
+				txtIdpromotor.setText("");
+				txtPrecio.setText("");
+				
 				
 			}
 		});
-		btnGuardar.setBounds(441, 119, 123, 52);
+		btnGuardar.setBounds(104, 349, 123, 52);
 		contentPane.add(btnGuardar);
+		
+		txtCodigo = new JTextField();
+		txtCodigo.setBounds(540, 253, 86, 20);
+		contentPane.add(txtCodigo);
+		txtCodigo.setColumns(10);
+		
+		lblNewLabel_13 = new JLabel("Codigo de Paquete");
+		lblNewLabel_13.setBounds(406, 256, 103, 14);
+		contentPane.add(lblNewLabel_13);
+		
+		btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Paquete paquete = new Paquete();
+				
+				paquete.delete(Integer.parseInt(txtCodigo.getText()));
+				
+				txtCodigo.setText("");
+				
+			}
+		});
+		btnEliminar.setBounds(406, 349, 123, 52);
+		contentPane.add(btnEliminar);
 	}
 }

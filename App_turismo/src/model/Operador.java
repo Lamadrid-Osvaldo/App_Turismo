@@ -11,7 +11,7 @@ import controler.Conexion;
 public class Operador {
 
 	Conexion conector = new Conexion();
-
+	int idoperador;
 	int tipodocumento;
 	int numerodocumento;
 	String nombre;
@@ -36,14 +36,6 @@ public class Operador {
 
 	public Operador() {
 		super();
-	}
-
-	public Conexion getConector() {
-		return conector;
-	}
-
-	public void setConector(Conexion conector) {
-		this.conector = conector;
 	}
 
 	public int getTipodocumento() {
@@ -138,6 +130,32 @@ public class Operador {
 
 			JOptionPane.showConfirmDialog(null, "registro con exito");
 		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void delete(int idoperador) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "DELETE FROM tbloperadores WHERE idoperador = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setInt(1, idoperador);
+			
+			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No."+idoperador+ " ?" );
+			
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Registro No. "+idoperador+" Eliminado");
+			}
+			
+			
+		}catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}

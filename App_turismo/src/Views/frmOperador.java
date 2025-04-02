@@ -27,6 +27,9 @@ public class frmOperador extends JFrame {
 	private JTextField txtTelefono;
 	private JLabel lblNewLabel_6;
 	private JTextField txtMatricula;
+	private JTextField txtIdOperador;
+	private JLabel lblNewLabel_7;
+	private JButton btnEliminar;
 
 	/**
 	 * Launch the application.
@@ -61,12 +64,12 @@ public class frmOperador extends JFrame {
 		contentPane.add(txtTipoDocumento);
 		txtTipoDocumento.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("tipo de documento");
+		JLabel lblNewLabel = new JLabel("Tipo de Documento");
 		lblNewLabel.setBounds(45, 40, 112, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Numero Documento");
-		lblNewLabel_1.setBounds(45, 76, 100, 14);
+		lblNewLabel_1.setBounds(45, 76, 112, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		txtNumeroDocumento = new JTextField();
@@ -84,7 +87,7 @@ public class frmOperador extends JFrame {
 		txtNombres.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Apellidos");
-		lblNewLabel_3.setBounds(45, 129, 46, 14);
+		lblNewLabel_3.setBounds(45, 129, 75, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		txtApellidos = new JTextField();
@@ -111,7 +114,7 @@ public class frmOperador extends JFrame {
 		txtCorreo.setColumns(10);
 		
 		JLabel lblNewLabel_8 = new JLabel("Telefono");
-		lblNewLabel_8.setBounds(45, 211, 46, 14);
+		lblNewLabel_8.setBounds(45, 211, 75, 14);
 		contentPane.add(lblNewLabel_8);
 		
 		txtTelefono = new JTextField();
@@ -129,19 +132,52 @@ public class frmOperador extends JFrame {
 						txtNombres.getText(), txtApellidos.getText(),txtDireccion.getText(), txtCorreo.getText(),
 						txtTelefono.getText(),txtMatricula.getText());
 				
+				txtTipoDocumento.setText("");
+				txtNumeroDocumento.setText("");
+				txtNombres.setText("");
+				txtApellidos.setText("");
+				txtDireccion.setText("");
+				txtCorreo.setText("");
+				txtTelefono.setText("");
+				txtMatricula.setText("");
+				
 			}
 		});
 		btnGuardar.setBounds(385, 125, 125, 63);
 		contentPane.add(btnGuardar);
 		
 		lblNewLabel_6 = new JLabel("Matricula");
-		lblNewLabel_6.setBounds(45, 243, 46, 14);
+		lblNewLabel_6.setBounds(45, 243, 75, 14);
 		contentPane.add(lblNewLabel_6);
 		
 		txtMatricula = new JTextField();
 		txtMatricula.setBounds(215, 240, 86, 20);
 		contentPane.add(txtMatricula);
 		txtMatricula.setColumns(10);
+		
+		txtIdOperador = new JTextField();
+		txtIdOperador.setBounds(215, 281, 86, 20);
+		contentPane.add(txtIdOperador);
+		txtIdOperador.setColumns(10);
+		
+		lblNewLabel_7 = new JLabel("Id Operador");
+		lblNewLabel_7.setBounds(45, 284, 86, 14);
+		contentPane.add(lblNewLabel_7);
+		
+		btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Operador operador = new Operador();
+				
+				operador.delete(Integer.parseInt(txtIdOperador.getText()));
+				
+				txtIdOperador.setText("");
+				
+			}
+		});
+		btnEliminar.setBounds(385, 239, 125, 44);
+		contentPane.add(btnEliminar);
 	}
 
 }
