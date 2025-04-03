@@ -2,9 +2,11 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controler.Conexion;
 
@@ -102,4 +104,33 @@ public class Medio {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void readOne(int idmedio, JTextField Nombre, JTextField Observaciones, JTextField idTipoMedios) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblmedios WHERE idmedios = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setInt(1, idmedio);
+			
+			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
+			
+			while (rs.next()) {
+				Nombre.setText(rs.getString(2));
+				Observaciones.setText(rs.getString(3));
+				idTipoMedios.setText(rs.getString(4));
+				
+			}
+			
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 }

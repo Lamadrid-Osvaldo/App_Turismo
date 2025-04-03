@@ -2,9 +2,11 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controler.Conexion;
 
@@ -22,7 +24,7 @@ public class Promotor {
 	public String telefono;
 	Conexion conector = new Conexion();
 	
-	public Promotor( int tipodocumento, int documento, String nombre, String Apellido ,String direccion,
+	public Promotor( int tipodocumento, int documento, String nombre, String apellido ,String direccion,
 			String correopersonal, String correocorp, String fechanacimiento, String telefono) {
 		super();
 		this.nombre = nombre;
@@ -146,6 +148,44 @@ public class Promotor {
 			if (resp == JOptionPane.YES_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "Registro No. "+idPromotor+" Eliminado");
+			}
+			
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void readOne(int idPromotor, JTextField Nombre, JTextField Apellido, 
+			JTextField txtTipoDocumento, JTextField txtDocumento, JTextField txtDireccion,
+			JTextField txtCorreoPersonal, JTextField txtCorreoCorp, JTextField txtFechaNacimiento,
+			JTextField txtTelefono, JTextField txtContrasena) {
+		
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblpromotores WHERE idpromotor = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setInt(1, idPromotor);
+			
+			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
+			
+			while (rs.next()) {
+				txtTipoDocumento.setText(rs.getString(2));
+				txtDocumento.setText(rs.getString(3));
+				Nombre.setText(rs.getString(4));
+				Apellido.setText(rs.getString(5));
+				txtDireccion.setText(rs.getString(6));
+				txtCorreoPersonal.setText(rs.getString(7));
+				txtCorreoCorp.setText(rs.getString(8));
+				txtFechaNacimiento.setText(rs.getString(9));
+				txtTelefono.setText(rs.getString(10));
+				txtContrasena.setText(rs.getString(11));	
 			}
 			
 			

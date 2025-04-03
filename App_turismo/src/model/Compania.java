@@ -2,9 +2,11 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controler.Conexion;
 
@@ -134,6 +136,36 @@ public class Compania {
 				JOptionPane.showMessageDialog(null, "Registro No. "+idCompania+" Eliminado");
 			}
 			
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void readOne(int idCompania, JTextField Nombre, JTextField Correo, 
+			JTextField Telefono, JTextField Direccion, JTextField Web, JTextField fechaCreacion) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblcompania WHERE idcompania = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setInt(1, idCompania);
+			
+			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
+			
+			while (rs.next()) {
+				Nombre.setText(rs.getString(2));
+				Correo.setText(rs.getString(3));
+				Telefono.setText(rs.getString(4));
+				Direccion.setText(rs.getString(5));
+				Web.setText(rs.getString(6));
+				fechaCreacion.setText(rs.getString(7));
+			}
 			
 		}catch (SQLException e) {
 			System.out.println(e.getMessage());

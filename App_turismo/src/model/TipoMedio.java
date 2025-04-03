@@ -2,9 +2,11 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controler.Conexion;
 
@@ -81,6 +83,31 @@ public class TipoMedio {
 			if (resp == JOptionPane.YES_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "Registro No. "+idTipoMedio+" Eliminado");
+			}
+			
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	public void readOne(int idTipoMedio, JTextField nombre, JTextField observacion) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tbltipomedios WHERE idtipomedios = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setInt(1, idTipoMedio);
+			
+			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
+			
+			while (rs.next()) {
+				nombre.setText(rs.getString(2));
+				observacion.setText(rs.getString(3));
 			}
 			
 			

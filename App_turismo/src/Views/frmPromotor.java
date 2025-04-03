@@ -18,6 +18,7 @@ public class frmPromotor extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtIdPromotor;
+	private JTextField txtContrasena;
 
 	/**
 	 * Launch the application.
@@ -41,7 +42,7 @@ public class frmPromotor extends JFrame {
 	public frmPromotor() {
 		setTitle("Promotor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 461, 319);
+		setBounds(100, 100, 493, 352);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -153,12 +154,12 @@ contentPane.setLayout(null);
 		contentPane.add(btnGuardar);
 		
 		txtIdPromotor = new JTextField();
-		txtIdPromotor.setBounds(179, 232, 86, 20);
+		txtIdPromotor.setBounds(98, 232, 86, 20);
 		contentPane.add(txtIdPromotor);
 		txtIdPromotor.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Id promotor");
-		lblNewLabel.setBounds(66, 235, 73, 14);
+		lblNewLabel.setBounds(17, 235, 73, 14);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnEliminar = new JButton("Eliminar");
@@ -173,10 +174,32 @@ contentPane.setLayout(null);
 				
 			}
 		});
-		btnEliminar.setBounds(286, 200, 110, 37);
+		btnEliminar.setBounds(279, 193, 110, 37);
 		contentPane.add(btnEliminar);
+		
+		txtContrasena = new JTextField();
+		txtContrasena.setBounds(98, 267, 86, 20);
+		contentPane.add(txtContrasena);
+		txtContrasena.setColumns(10);
+		
+		JLabel fdef = new JLabel("Contrasena");
+		fdef.setBounds(28, 270, 62, 14);
+		contentPane.add(fdef);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Promotor promotor = new Promotor();
+				
+				promotor.readOne(Integer.parseInt(txtIdPromotor.getText()), txtNombre, txtApellido, 
+						txtTipoDocumento, txtDocumento, txtDireccion, txtCorreoPersonal,
+						txtCorreoCorp, txtFechaNacimiento, txtTelefono, txtContrasena);
+			}
+		});
+		btnConsultar.setBounds(283, 246, 106, 37);
+		contentPane.add(btnConsultar);
 		
 		
 	}
-
 }

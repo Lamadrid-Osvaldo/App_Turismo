@@ -57,11 +57,11 @@ public class frmMedio extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("observaciones");
-		lblNewLabel_1.setBounds(53, 107, 75, 14);
+		lblNewLabel_1.setBounds(53, 87, 75, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Id Tipo Medios");
-		lblNewLabel_2.setBounds(53, 169, 105, 14);
+		lblNewLabel_2.setBounds(45, 126, 105, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		txtNombre = new JTextField();
@@ -70,12 +70,12 @@ public class frmMedio extends JFrame {
 		txtNombre.setColumns(10);
 		
 		txtObservaciones = new JTextField();
-		txtObservaciones.setBounds(151, 104, 86, 20);
+		txtObservaciones.setBounds(151, 84, 86, 20);
 		contentPane.add(txtObservaciones);
 		txtObservaciones.setColumns(10);
 		
 		txtIdTipoMedios = new JTextField();
-		txtIdTipoMedios.setBounds(151, 166, 86, 20);
+		txtIdTipoMedios.setBounds(151, 123, 86, 20);
 		contentPane.add(txtIdTipoMedios);
 		txtIdTipoMedios.setColumns(10);
 		
@@ -93,16 +93,16 @@ public class frmMedio extends JFrame {
 				
 			}
 		});
-		btnGuardar.setBounds(345, 87, 121, 54);
+		btnGuardar.setBounds(339, 67, 121, 54);
 		contentPane.add(btnGuardar);
 		
 		txtIdMedios = new JTextField();
-		txtIdMedios.setBounds(151, 241, 86, 20);
+		txtIdMedios.setBounds(151, 178, 86, 20);
 		contentPane.add(txtIdMedios);
 		txtIdMedios.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Id Medios");
-		lblNewLabel_3.setBounds(53, 244, 61, 14);
+		lblNewLabel_3.setBounds(53, 181, 61, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JButton btnEliminar = new JButton("Eliminar");
@@ -118,8 +118,21 @@ public class frmMedio extends JFrame {
 			}
 			
 		});
-		btnEliminar.setBounds(357, 213, 105, 48);
+		btnEliminar.setBounds(349, 132, 105, 48);
 		contentPane.add(btnEliminar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Medio medio = new Medio();
+				
+				medio.readOne(Integer.parseInt(txtIdMedios.getText()), txtNombre, txtObservaciones, txtIdTipoMedios);
+				
+			}
+		});
+		btnConsultar.setBounds(349, 213, 113, 48);
+		contentPane.add(btnConsultar);
 		
 		
 	}

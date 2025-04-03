@@ -146,7 +146,7 @@ contentPane.setLayout(null);
 				txtDireccion.setText("");
 			}
 		});
-		btnNewButton.setBounds(343, 190, 112, 34);
+		btnNewButton.setBounds(237, 204, 112, 34);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre:");
@@ -174,12 +174,12 @@ contentPane.setLayout(null);
 		contentPane.add(lblIdcompania);
 		
 		txtIdCliente = new JTextField();
-		txtIdCliente.setBounds(112, 271, 86, 20);
+		txtIdCliente.setBounds(112, 218, 86, 20);
 		contentPane.add(txtIdCliente);
 		txtIdCliente.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("ID Cliente");
-		lblNewLabel.setBounds(27, 274, 62, 14);
+		lblNewLabel.setBounds(40, 221, 62, 14);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnEliminar = new JButton("Eliminar");
@@ -193,8 +193,22 @@ contentPane.setLayout(null);
 				txtIdCliente.setText("");
 			}
 		});
-		btnEliminar.setBounds(343, 264, 112, 34);
+		btnEliminar.setBounds(363, 204, 112, 34);
 		contentPane.add(btnEliminar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Cliente cliente = new Cliente();
+				
+				cliente.readOne(Integer.parseInt(txtIdCliente.getText()), txtTipoDocumento, txtDocumento, txtNombre, txtApellido, 
+						txtEps, txtAlergias, txtFechaNacimiento, txtCorreo, txtEstadoCivil,
+						txtTelefonico, txtDireccion);
+			}
+		});
+		btnConsultar.setBounds(307, 268, 102, 34);
+		contentPane.add(btnConsultar);
 		
 		
 		

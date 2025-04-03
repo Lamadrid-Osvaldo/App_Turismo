@@ -2,9 +2,11 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controler.Conexion;
 
@@ -138,6 +140,37 @@ public class Transporte {
 			if (resp == JOptionPane.YES_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "Registro No. "+matricula+" Eliminado");
+			}
+			
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void readOne(String matricula, JTextField Marca, JTextField Asientos,
+			JTextField Modelo , JTextField Categoria , JTextField numeroMotor , JTextField idTipoTransportes) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tbltransporte WHERE matricula = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setString(1, matricula);
+			
+			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
+			
+			while (rs.next()) {
+				Marca.setText(rs.getString(2));
+				Asientos.setText(rs.getString(3));
+				Modelo.setText(rs.getString(4));
+				Categoria.setText(rs.getString(5));
+				numeroMotor.setText(rs.getString(6));
+				idTipoTransportes.setText(rs.getString(7));
 			}
 			
 			

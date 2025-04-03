@@ -2,9 +2,11 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controler.Conexion;
 
@@ -165,6 +167,45 @@ public class Cliente {
 			if (resp == JOptionPane.YES_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "Registro No. "+idcliente+" Eliminado");
+			}
+			
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void readOne(int idcliente, JTextField tipodocumento, JTextField numerodocumento,
+			JTextField nombres, JTextField apellidos, JTextField eps, JTextField alergias,
+			JTextField fechanacimiento, JTextField correo, 
+			JTextField estadocivil, JTextField telefono, JTextField direccion) {
+		
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblclientes WHERE idclientes = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); //Abrir la conexion
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
+			
+			//Parametrizar el campo
+			pst.setInt(1, idcliente);
+			
+			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
+			
+			while (rs.next()) {
+				tipodocumento.setText(rs.getString(2));
+				numerodocumento.setText(rs.getString(3));
+				nombres.setText(rs.getString(4));
+				apellidos.setText(rs.getString(5));
+				eps.setText(rs.getString(6));
+				alergias.setText(rs.getString(7));
+				fechanacimiento.setText(rs.getString(8));
+				correo.setText(rs.getString(9));
+				estadocivil.setText(rs.getString(10));
+				telefono.setText(rs.getString(11));
+				direccion.setText(rs.getString(12));
 			}
 			
 			

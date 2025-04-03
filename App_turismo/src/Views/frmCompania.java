@@ -39,6 +39,7 @@ public class frmCompania extends JFrame {
 	 * Create the frame.
 	 */
 	public frmCompania() {
+		setTitle("Compañias");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 465, 324);
 		contentPane = new JPanel();
@@ -123,12 +124,12 @@ contentPane.setLayout(null);
 		contentPane.add(lblIdcompania);
 		
 		txtIdCompania = new JTextField();
-		txtIdCompania.setBounds(169, 229, 86, 20);
+		txtIdCompania.setBounds(108, 213, 86, 20);
 		contentPane.add(txtIdCompania);
 		txtIdCompania.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Id Compania");
-		lblNewLabel.setBounds(62, 232, 74, 14);
+		lblNewLabel.setBounds(24, 216, 74, 14);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnEliminar = new JButton("Eliminar");
@@ -142,7 +143,21 @@ contentPane.setLayout(null);
 				
 			}
 		});
-		btnEliminar.setBounds(270, 160, 110, 29);
+		btnEliminar.setBounds(270, 110, 110, 29);
 		contentPane.add(btnEliminar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Compania compania = new Compania();
+				
+				compania.readOne(Integer.parseInt(txtIdCompania.getText()), txtNombre, txtCorreo,
+						txtTelefono, txtDireccion, txtWeb, txtFechaCreacion);
+				
+			}
+		});
+		btnConsultar.setBounds(270, 172, 110, 29);
+		contentPane.add(btnConsultar);
 	}
 }
