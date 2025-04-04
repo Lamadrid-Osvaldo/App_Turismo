@@ -116,4 +116,34 @@ public class TipoTransporte {
 		}
 	}
 	
+	public void update(int idTipoTransporte,String nombre, String observacion) {
+
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "update tbltipotransportes set nombre = ?, observaciones = ?  where idtipostransportes = ?;";
+
+		try {
+			dbConnection = conector.conectarDB(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+			pst.setString(1, nombre);
+			pst.setString(2, observacion);
+			pst.setInt(3, idTipoTransporte);
+			
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 }

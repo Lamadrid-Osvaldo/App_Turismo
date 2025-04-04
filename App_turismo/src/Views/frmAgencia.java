@@ -133,7 +133,7 @@ contentPane.setLayout(null);
 				
 			}
 		});
-		btnEliminar.setBounds(249, 85, 111, 35);
+		btnEliminar.setBounds(249, 172, 111, 35);
 		contentPane.add(btnEliminar);
 		
 		txtIdAgencia = new JTextField();
@@ -155,8 +155,23 @@ contentPane.setLayout(null);
 				
 			}
 		});
-		btnConsultar.setBounds(249, 131, 111, 35);
+		btnConsultar.setBounds(249, 75, 111, 35);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Agencias agencia = new Agencias();
+				
+				agencia.update(Integer.parseInt(txtIdAgencia.getText()), txtNombre.getText(), txtCorreo.getText(), 
+						txtTelefono.getText(), txtDireccion.getText(),
+						txtWeb.getText(), Integer.parseInt(txtIdCompania.getText()));
+				
+			}
+		});
+		btnActualizar.setBounds(249, 124, 111, 35);
+		contentPane.add(btnActualizar);
 	}
 
 }

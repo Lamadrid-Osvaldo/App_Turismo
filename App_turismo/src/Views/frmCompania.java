@@ -143,7 +143,7 @@ contentPane.setLayout(null);
 				
 			}
 		});
-		btnEliminar.setBounds(270, 110, 110, 29);
+		btnEliminar.setBounds(270, 179, 110, 29);
 		contentPane.add(btnEliminar);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -157,7 +157,21 @@ contentPane.setLayout(null);
 				
 			}
 		});
-		btnConsultar.setBounds(270, 172, 110, 29);
+		btnConsultar.setBounds(270, 91, 110, 29);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Compania compania = new Compania();
+				
+				compania.update(Integer.parseInt(txtIdCompania.getText()), txtNombre.getText(), txtCorreo.getText(), txtTelefono.getText(), 
+						txtDireccion.getText(), txtWeb.getText(),txtFechaCreacion.getText() );
+				
+			}
+		});
+		btnActualizar.setBounds(270, 137, 110, 31);
+		contentPane.add(btnActualizar);
 	}
 }

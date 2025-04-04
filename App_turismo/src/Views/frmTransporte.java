@@ -17,6 +17,7 @@ public class frmTransporte extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JButton btnActualizar;
 
 	/**
 	 * Launch the application.
@@ -103,7 +104,7 @@ public class frmTransporte extends JFrame {
 		btnGuardar.setBounds(274, 74, 110, 36);
 		contentPane.add(btnGuardar);
 		
-		JLabel lblNewLabel = new JLabel("matricula:");
+		JLabel lblNewLabel = new JLabel("Matricula:");
 		lblNewLabel.setBounds(25, 46, 62, 14);
 		contentPane.add(lblNewLabel);
 		
@@ -111,11 +112,11 @@ public class frmTransporte extends JFrame {
 		lblCorreo.setBounds(25, 71, 46, 14);
 		contentPane.add(lblCorreo);
 		
-		JLabel lblTelefono = new JLabel("puestos:");
+		JLabel lblTelefono = new JLabel("Puestos:");
 		lblTelefono.setBounds(25, 108, 46, 14);
 		contentPane.add(lblTelefono);
 		
-		JLabel lblDireccion = new JLabel("modelo:");
+		JLabel lblDireccion = new JLabel("Modelo:");
 		lblDireccion.setBounds(25, 139, 60, 14);
 		contentPane.add(lblDireccion);
 		
@@ -123,7 +124,7 @@ public class frmTransporte extends JFrame {
 		lblWeb.setBounds(10, 167, 96, 14);
 		contentPane.add(lblWeb);
 		
-		JLabel lblIdcompania = new JLabel("categoria:");
+		JLabel lblIdcompania = new JLabel("Categoria:");
 		lblIdcompania.setBounds(25, 205, 60, 14);
 		contentPane.add(lblIdcompania);
 		
@@ -141,7 +142,7 @@ public class frmTransporte extends JFrame {
 				
 			}
 		});
-		btnEliminar.setBounds(274, 122, 110, 36);
+		btnEliminar.setBounds(274, 205, 110, 36);
 		contentPane.add(btnEliminar);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -154,8 +155,24 @@ public class frmTransporte extends JFrame {
 				
 			}
 		});
-		btnConsultar.setBounds(274, 166, 103, 36);
+		btnConsultar.setBounds(274, 120, 103, 36);
 		contentPane.add(btnConsultar);
+		
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Transporte transporte = new Transporte();
+				
+				transporte.update(txtMatricula.getText(), txtMarca.getText(), Integer.parseInt(txtAsientos.getText()),
+						txtModelo.getText(),txtCategoria.getText(),txtNumeroMotor.getText(),Integer.parseInt(txtIdTipoTransporte.getText()));
+				
+				
+				
+			}
+		});
+		btnActualizar.setBounds(274, 164, 110, 36);
+		contentPane.add(btnActualizar);
 		
 	}	
 }

@@ -171,4 +171,39 @@ public class Compania {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void update(int idCompania, String nombre ,String correo, String telefono, String direccion, String web, String fechacreacion) {
+
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "update tblcompania set nombre = ?, correo = ?, telefono = ?, direccion = ?, web = ?, fechacreacion = ?  where idcompania = ?;";
+
+		try {
+			dbConnection = conector.conectarDB(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+			pst.setString(1, nombre);
+			pst.setString(2, correo);
+			pst.setString(3, telefono);
+			pst.setString(4, direccion);
+			pst.setString(5, web);
+			pst.setString(6, fechacreacion);
+			pst.setInt(7, idCompania);
+			
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 }

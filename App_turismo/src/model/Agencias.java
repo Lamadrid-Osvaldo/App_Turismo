@@ -164,4 +164,38 @@ public class Agencias {
 		}
 	}
 	
+	public void update(int idagencia, String nombre, String correo, String telefono, String direccion, String web, int idcompania) {
+
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "update tblagencias set nombre = ?, correo = ?, telefono = ?, direccion = ?, web = ?, idcompania = ?  where idagencia = ?;";
+
+		try {
+			dbConnection = conector.conectarDB(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+			pst.setString(1, nombre);
+			pst.setString(2, correo);
+			pst.setString(3, telefono);
+			pst.setString(4, direccion);
+			pst.setString(5, web);
+			pst.setInt(6, idcompania);
+			pst.setInt(7, idagencia);
+			
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 }

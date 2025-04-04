@@ -118,7 +118,7 @@ public class frmMedio extends JFrame {
 			}
 			
 		});
-		btnEliminar.setBounds(349, 132, 105, 48);
+		btnEliminar.setBounds(355, 247, 105, 48);
 		contentPane.add(btnEliminar);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -131,8 +131,22 @@ public class frmMedio extends JFrame {
 				
 			}
 		});
-		btnConsultar.setBounds(349, 213, 113, 48);
+		btnConsultar.setBounds(349, 135, 113, 48);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Medio medio = new Medio();
+				
+				medio.update(Integer.parseInt(txtIdMedios.getText()),txtNombre.getText(), txtObservaciones.getText(), 
+						Integer.parseInt(txtIdTipoMedios.getText()) );
+				
+			}
+		});
+		btnActualizar.setBounds(355, 194, 105, 42);
+		contentPane.add(btnActualizar);
 		
 		
 	}

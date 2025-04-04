@@ -194,5 +194,42 @@ public class Promotor {
 		}
 	}
 	
+	public void update(int idPromotor , int tipodocumento, int documento, String nombre, String apellido ,String direccion,
+			String correopersonal, String correocorp, String fechanacimiento, String telefono) {
+
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "update tblpromotores set tipodocumento = ?, numerodocumento = ?, nombre = ?, apellido = ?, direccion = ?, correo = ?, correocorporativo = ?, fechanacimiento = ?, telefono = ?  where idpromotor = ?;";
+
+		try {
+			dbConnection = conector.conectarDB(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+			pst.setInt(1, tipodocumento);
+			pst.setInt(2, documento);
+			pst.setString(3, nombre);
+			pst.setString(4, apellido);
+			pst.setString(5, direccion);
+			pst.setString(6, correopersonal);
+			pst.setString(7, correocorp);
+			pst.setString(8, fechanacimiento);
+			pst.setString(9, telefono);
+			pst.setInt(10, idPromotor);
+			
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 	
 }

@@ -133,4 +133,36 @@ public class Medio {
 		}
 	}
 	
+	public void update(int idmedio, String nombre, String observaciones ,int idtipomedio) {
+
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "update tblmedios set nombre = ?, observaciones = ?, idtipomedios = ?  where idmedios = ?;";
+
+		try {
+			dbConnection = conector.conectarDB(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+			pst.setString(1, nombre);
+			pst.setString(2, observaciones);
+			pst.setInt(3, idtipomedio);
+			pst.setInt(4, idmedio);
+			
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	
 }

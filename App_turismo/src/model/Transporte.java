@@ -178,5 +178,40 @@ public class Transporte {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void update(String matricula, String marca, int asientos, String modelo, String categoria, String numeroMotor,
+			int idTipoTransporte) {
+
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "update tbltransporte set marca = ?, asientos = ?, modelo = ?, categoria = ?, numeromotor = ?, idtipotransportes = ?  where matricula = ?;";
+
+		try {
+			dbConnection = conector.conectarDB(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+			pst.setString(1, marca);
+			pst.setInt(2, asientos);
+			pst.setString(3, modelo);
+			pst.setString(4, categoria);
+			pst.setString(5, numeroMotor);
+			pst.setInt(6, idTipoTransporte);
+			pst.setString(7, matricula);
+			
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

@@ -256,5 +256,47 @@ public class Paquete {
 		}
 	}
 	
+	public void update(int codigo , int iddestino, int idorigen, String fechaventa, String horaventa, String fechaejecucion,
+			String horasalida, String observaciones, int idclientes, int idagencia, String matricula, int idmedios,
+			int idpromotor, String precio) {
 
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "update tblpaquetes set iddestino = ?, idorigen = ?, fechaventa = ?, horaventa = ?, fechaejecucion = ?,  horasalida = ?, observaciones = ?, idclientes = ?, idagencia = ? ,matricula = ?, idmedios = ?, idpromotor = ?, precio = ?  where codigo = ?;";
+
+		try {
+			dbConnection = conector.conectarDB(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+			pst.setInt(1, iddestino);
+			pst.setInt(2, idorigen);
+			pst.setString(3, fechaventa);
+			pst.setString(4, horaventa);
+			pst.setString(5, fechaejecucion);
+			pst.setString(6, horasalida);
+			pst.setString(7, observaciones);
+			pst.setInt(8, idclientes);
+			pst.setInt(9, idagencia);
+			pst.setString(10, matricula);
+			pst.setInt(11, idmedios);
+			pst.setInt(12, idpromotor);
+			pst.setString(13, precio);
+			pst.setInt(14, codigo);
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	
 }

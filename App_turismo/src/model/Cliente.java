@@ -118,7 +118,7 @@ public class Cliente {
 	}
 	
 	public void create(int tipodocumento, int documento, String nombre, String apellidos, String eps, String alergias,
-		String fechanacimiento, String correo, String estadocivil, String direccion, String telefono) {
+		String fechanacimiento, String correo, String estadocivil, String telefono, String direccion) {
 		
 		
 		Connection dbConnection = null;
@@ -213,4 +213,45 @@ public class Cliente {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void update(int idcliente, int tipodocumento, int documento, String nombre, String apellidos, String eps, String alergias,
+			String fechanacimiento, String correo, String estadocivil, String telefono, String direccion) {
+
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "update tblclientes set tipodocumento = ?, numerodocumento = ?, nombres = ?, apellidos = ?, eps = ?, alergias = ?, fechanacimiento = ?, correo = ?, estadocivil = ?, telefono = ?, direccion = ?  where idclientes = ?;";
+
+		try {
+			dbConnection = conector.conectarDB(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+			pst.setInt(1, tipodocumento);
+			pst.setInt(2, documento);
+			pst.setString(3, nombre);
+			pst.setString(4, apellidos);
+			pst.setString(5, eps);
+			pst.setString(6, alergias);
+			pst.setString(7, fechanacimiento);
+			pst.setString(8, correo);
+			pst.setString(9, estadocivil);
+			pst.setString(10, telefono);
+			pst.setString(11, direccion);
+			pst.setInt(12, idcliente);
+			
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 }

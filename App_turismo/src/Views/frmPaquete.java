@@ -35,6 +35,7 @@ public class frmPaquete extends JFrame {
 	private JLabel lblNewLabel_13;
 	private JButton btnEliminar;
 	private JButton btnConsultar;
+	private JButton btnActualizar;
 
 	/**
 	 * Launch the application.
@@ -234,7 +235,7 @@ public class frmPaquete extends JFrame {
 				
 			}
 		});
-		btnEliminar.setBounds(503, 349, 123, 52);
+		btnEliminar.setBounds(491, 349, 123, 52);
 		contentPane.add(btnEliminar);
 		
 		btnConsultar = new JButton("Consultar");
@@ -249,7 +250,24 @@ public class frmPaquete extends JFrame {
 				
 			}
 		});
-		btnConsultar.setBounds(262, 349, 123, 52);
+		btnConsultar.setBounds(334, 349, 123, 52);
 		contentPane.add(btnConsultar);
+		
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Paquete paquete = new Paquete();
+				
+				paquete.update(Integer.parseInt(txtCodigo.getText()),Integer.parseInt(txtIdDestino.getText()),Integer.parseInt(txtIdOrigen.getText()),
+						txtFechaventa.getText(),txtHoraventa.getText(),txtFechaejecucion.getText(),txtHorasalida.getText(),
+						txtObservaciones.getText(),Integer.parseInt(txtIdclientes.getText()),
+						Integer.parseInt(txtIdagencia.getText()), txtMatricula.getText(),Integer.parseInt(txtIdmedios.getText()),
+						Integer.parseInt(txtIdpromotor.getText()),txtPrecio.getText());
+				
+			}
+		});
+		btnActualizar.setBounds(192, 349, 132, 52);
+		contentPane.add(btnActualizar);
 	}
 }

@@ -30,6 +30,7 @@ public class frmOperador extends JFrame {
 	private JTextField txtIdOperador;
 	private JLabel lblNewLabel_7;
 	private JButton btnEliminar;
+	private JButton btnActualizar;
 
 	/**
 	 * Launch the application.
@@ -156,12 +157,12 @@ public class frmOperador extends JFrame {
 		txtMatricula.setColumns(10);
 		
 		txtIdOperador = new JTextField();
-		txtIdOperador.setBounds(215, 281, 86, 20);
+		txtIdOperador.setBounds(215, 271, 86, 20);
 		contentPane.add(txtIdOperador);
 		txtIdOperador.setColumns(10);
 		
 		lblNewLabel_7 = new JLabel("Id Operador");
-		lblNewLabel_7.setBounds(45, 284, 86, 14);
+		lblNewLabel_7.setBounds(45, 271, 86, 20);
 		contentPane.add(lblNewLabel_7);
 		
 		btnEliminar = new JButton("Eliminar");
@@ -176,7 +177,7 @@ public class frmOperador extends JFrame {
 				
 			}
 		});
-		btnEliminar.setBounds(385, 129, 125, 44);
+		btnEliminar.setBounds(385, 259, 125, 44);
 		contentPane.add(btnEliminar);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -190,7 +191,22 @@ public class frmOperador extends JFrame {
 				
 			}
 		});
-		btnConsultar.setBounds(385, 211, 125, 46);
+		btnConsultar.setBounds(385, 129, 125, 46);
 		contentPane.add(btnConsultar);
+		
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Operador operador = new Operador();
+				
+				operador.update(Integer.parseInt(txtIdOperador.getText()), Integer.parseInt(txtTipoDocumento.getText()),Integer.parseInt(txtNumeroDocumento.getText()), 
+						txtNombres.getText(), txtApellidos.getText(),txtDireccion.getText(), txtCorreo.getText(),
+						txtTelefono.getText(),txtMatricula.getText());
+				
+			}
+		});
+		btnActualizar.setBounds(385, 197, 125, 43);
+		contentPane.add(btnActualizar);
 	}
 }

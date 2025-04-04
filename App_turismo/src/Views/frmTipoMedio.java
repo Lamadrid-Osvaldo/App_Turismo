@@ -98,7 +98,7 @@ contentPane.setLayout(null);
 			}
 			
 		});
-		btnEliminar.setBounds(247, 112, 100, 31);
+		btnEliminar.setBounds(266, 196, 100, 31);
 		contentPane.add(btnEliminar);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -109,8 +109,21 @@ contentPane.setLayout(null);
 				tipomedio.readOne(Integer.parseInt(txtIdTipoMedio.getText()), txtNombre, txtObservacion);
 			}
 		});
-		btnConsultar.setBounds(256, 157, 108, 31);
+		btnConsultar.setBounds(247, 108, 108, 31);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				TipoMedio tipomedio = new TipoMedio();
+				
+				tipomedio.update(Integer.parseInt(txtIdTipoMedio.getText()), txtNombre.getText(), txtObservacion.getText());
+				
+			}
+		});
+		btnActualizar.setBounds(257, 154, 98, 31);
+		contentPane.add(btnActualizar);
 		
 		
 	}

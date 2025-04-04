@@ -42,7 +42,7 @@ public class frmPromotor extends JFrame {
 	public frmPromotor() {
 		setTitle("Promotor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 493, 352);
+		setBounds(100, 100, 491, 381);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -92,11 +92,11 @@ contentPane.setLayout(null);
 		contentPane.add(lblTelefono);
 		
 		JLabel lblDireccion = new JLabel("documento:");
-		lblDireccion.setBounds(28, 142, 60, 14);
+		lblDireccion.setBounds(28, 142, 68, 14);
 		contentPane.add(lblDireccion);
 		
 		JLabel lblWeb = new JLabel("direccion:");
-		lblWeb.setBounds(44, 173, 46, 14);
+		lblWeb.setBounds(28, 173, 60, 14);
 		contentPane.add(lblWeb);
 		
 		JLabel lblIdcompania = new JLabel("correopersonal:");
@@ -108,7 +108,7 @@ contentPane.setLayout(null);
 		contentPane.add(lblCorreocorp);
 		
 		JLabel lblFechanacimiento = new JLabel("fechanacimiento:");
-		lblFechanacimiento.setBounds(199, 77, 86, 14);
+		lblFechanacimiento.setBounds(199, 77, 95, 14);
 		contentPane.add(lblFechanacimiento);
 		
 		JLabel lblTelefono_1 = new JLabel("telefono:");
@@ -117,17 +117,17 @@ contentPane.setLayout(null);
 		
 		JTextField txtCorreoCorp = new JTextField();
 		txtCorreoCorp.setColumns(10);
-		txtCorreoCorp.setBounds(286, 43, 86, 20);
+		txtCorreoCorp.setBounds(295, 46, 86, 20);
 		contentPane.add(txtCorreoCorp);
 		
 		JTextField txtFechaNacimiento = new JTextField();
 		txtFechaNacimiento.setColumns(10);
-		txtFechaNacimiento.setBounds(286, 74, 86, 20);
+		txtFechaNacimiento.setBounds(295, 74, 86, 20);
 		contentPane.add(txtFechaNacimiento);
 		
 		JTextField txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
-		txtTelefono.setBounds(286, 102, 86, 20);
+		txtTelefono.setBounds(295, 102, 86, 20);
 		contentPane.add(txtTelefono);
 		
 		JButton btnGuardar = new JButton("Guardar");
@@ -174,7 +174,7 @@ contentPane.setLayout(null);
 				
 			}
 		});
-		btnEliminar.setBounds(279, 193, 110, 37);
+		btnEliminar.setBounds(269, 294, 110, 37);
 		contentPane.add(btnEliminar);
 		
 		txtContrasena = new JTextField();
@@ -197,8 +197,23 @@ contentPane.setLayout(null);
 						txtCorreoCorp, txtFechaNacimiento, txtTelefono, txtContrasena);
 			}
 		});
-		btnConsultar.setBounds(283, 246, 106, 37);
+		btnConsultar.setBounds(269, 193, 106, 37);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Promotor promotor = new Promotor();
+				
+				promotor.update(Integer.parseInt(txtIdPromotor.getText()), Integer.parseInt(txtTipoDocumento.getText()), Integer.parseInt(txtDocumento.getText()),
+						txtNombre.getText(), txtApellido.getText() , txtDireccion.getText(), txtCorreoPersonal.getText(),
+						txtCorreoCorp.getText(), txtFechaNacimiento.getText(), txtTelefono.getText());
+				
+			}
+		});
+		btnActualizar.setBounds(269, 246, 106, 37);
+		contentPane.add(btnActualizar);
 		
 		
 	}
