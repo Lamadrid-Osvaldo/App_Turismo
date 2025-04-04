@@ -150,7 +150,7 @@ public class frmTransporte extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				Transporte transporte = new Transporte();
 				
-				transporte.readOne(txtMatricula.getText()	, txtMarca, txtAsientos, txtModelo, txtCategoria, txtNumeroMotor, txtIdTipoTransporte);
+				transporte.readOne(txtMatricula.getText(), txtMarca, txtAsientos, txtModelo, txtCategoria, txtNumeroMotor, txtIdTipoTransporte);
 				
 			}
 		});

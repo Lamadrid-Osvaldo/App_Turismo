@@ -49,76 +49,76 @@ contentPane.setLayout(null);
 		
 		JTextField txtNombre = new JTextField();
 		txtNombre.setColumns(10);
-		txtNombre.setBounds(108, 74, 86, 20);
+		txtNombre.setBounds(99, 23, 111, 20);
 		contentPane.add(txtNombre);
 		
 		JTextField txtCorreo = new JTextField();
 		txtCorreo.setColumns(10);
-		txtCorreo.setBounds(108, 105, 86, 20);
+		txtCorreo.setBounds(99, 47, 111, 20);
 		contentPane.add(txtCorreo);
 		
 		JTextField txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
-		txtTelefono.setBounds(108, 136, 86, 20);
+		txtTelefono.setBounds(99, 75, 111, 20);
 		contentPane.add(txtTelefono);
 		
 		JTextField txtDireccion = new JTextField();
 		txtDireccion.setColumns(10);
-		txtDireccion.setBounds(108, 167, 86, 20);
+		txtDireccion.setBounds(99, 100, 111, 20);
 		contentPane.add(txtDireccion);
 		
 		JTextField txtWeb = new JTextField();
 		txtWeb.setColumns(10);
-		txtWeb.setBounds(108, 198, 86, 20);
+		txtWeb.setBounds(99, 125, 111, 20);
 		contentPane.add(txtWeb);
 		
-		JTextField txtIdCompañia = new JTextField();
-		txtIdCompañia.setColumns(10);
-		txtIdCompañia.setBounds(108, 229, 86, 20);
-		contentPane.add(txtIdCompañia);
+		JTextField txtIdCompania = new JTextField();
+		txtIdCompania.setColumns(10);
+		txtIdCompania.setBounds(99, 156, 111, 20);
+		contentPane.add(txtIdCompania);
 		
-		JButton btnGuardar = new JButton("guardar");
+		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
 				Agencias agencia = new Agencias();
 				agencia.create(txtNombre.getText(), txtCorreo.getText(), txtTelefono.getText(), txtDireccion.getText(),
-						txtWeb.getText(), Integer.parseInt(txtIdCompañia.getText()));
+						txtWeb.getText(), Integer.parseInt(txtIdCompania.getText()));
 				
 				txtNombre.setText("");
 				txtCorreo.setText("");
 				txtTelefono.setText("");
 				txtDireccion.setText("");
 				txtWeb.setText("");
-				txtIdCompañia.setText("");
+				txtIdCompania.setText("");
 			}
 		});
-		btnGuardar.setBounds(249, 67, 111, 35);
+		btnGuardar.setBounds(249, 32, 111, 35);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre:");
-		lblNewLabel_1.setBounds(27, 77, 62, 14);
+		lblNewLabel_1.setBounds(27, 26, 62, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblCorreo = new JLabel("Correo:");
-		lblCorreo.setBounds(27, 108, 46, 14);
+		lblCorreo.setBounds(27, 53, 46, 14);
 		contentPane.add(lblCorreo);
 		
 		JLabel lblTelefono = new JLabel("Telefono:");
-		lblTelefono.setBounds(27, 139, 71, 14);
+		lblTelefono.setBounds(27, 78, 71, 14);
 		contentPane.add(lblTelefono);
 		
 		JLabel lblDireccion = new JLabel("Direccion:");
-		lblDireccion.setBounds(27, 170, 60, 14);
+		lblDireccion.setBounds(27, 103, 60, 14);
 		contentPane.add(lblDireccion);
 		
 		JLabel lblWeb = new JLabel("Web:");
-		lblWeb.setBounds(27, 201, 46, 14);
+		lblWeb.setBounds(27, 128, 46, 14);
 		contentPane.add(lblWeb);
 		
 		JLabel lblIdcompania = new JLabel("Idcompañia:");
-		lblIdcompania.setBounds(29, 232, 69, 14);
+		lblIdcompania.setBounds(27, 159, 69, 14);
 		contentPane.add(lblIdcompania);
 		
 		JButton btnEliminar = new JButton("Eliminar");
@@ -133,17 +133,30 @@ contentPane.setLayout(null);
 				
 			}
 		});
-		btnEliminar.setBounds(249, 135, 111, 35);
+		btnEliminar.setBounds(249, 85, 111, 35);
 		contentPane.add(btnEliminar);
 		
 		txtIdAgencia = new JTextField();
-		txtIdAgencia.setBounds(261, 229, 86, 20);
+		txtIdAgencia.setBounds(99, 187, 111, 20);
 		contentPane.add(txtIdAgencia);
 		txtIdAgencia.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Id Agencia :");
-		lblNewLabel.setBounds(261, 201, 71, 14);
+		lblNewLabel.setBounds(27, 190, 71, 14);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Agencias agencia = new Agencias();
+				
+				agencia.readOne(Integer.parseInt(txtIdAgencia.getText()), txtNombre, txtCorreo, txtTelefono, txtDireccion, txtWeb, txtIdCompania);
+				
+			}
+		});
+		btnConsultar.setBounds(249, 131, 111, 35);
+		contentPane.add(btnConsultar);
 	}
 
 }

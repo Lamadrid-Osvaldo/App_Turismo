@@ -34,6 +34,7 @@ public class frmPaquete extends JFrame {
 	private JTextField txtCodigo;
 	private JLabel lblNewLabel_13;
 	private JButton btnEliminar;
+	private JButton btnConsultar;
 
 	/**
 	 * Launch the application.
@@ -209,7 +210,7 @@ public class frmPaquete extends JFrame {
 				
 			}
 		});
-		btnGuardar.setBounds(104, 349, 123, 52);
+		btnGuardar.setBounds(48, 349, 123, 52);
 		contentPane.add(btnGuardar);
 		
 		txtCodigo = new JTextField();
@@ -233,7 +234,22 @@ public class frmPaquete extends JFrame {
 				
 			}
 		});
-		btnEliminar.setBounds(406, 349, 123, 52);
+		btnEliminar.setBounds(503, 349, 123, 52);
 		contentPane.add(btnEliminar);
+		
+		btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Paquete paquete = new Paquete();
+				
+				paquete.readOne(Integer.parseInt(txtCodigo.getText()) , txtIdDestino, txtIdOrigen, txtFechaventa, 
+						txtHoraventa, txtFechaejecucion, txtHorasalida, txtObservaciones, txtIdclientes, txtIdagencia, 
+						txtMatricula, txtIdmedios, txtIdpromotor, txtPrecio);
+				
+			}
+		});
+		btnConsultar.setBounds(262, 349, 123, 52);
+		contentPane.add(btnConsultar);
 	}
 }

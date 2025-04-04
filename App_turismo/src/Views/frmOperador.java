@@ -143,7 +143,7 @@ public class frmOperador extends JFrame {
 				
 			}
 		});
-		btnGuardar.setBounds(385, 125, 125, 63);
+		btnGuardar.setBounds(385, 52, 125, 63);
 		contentPane.add(btnGuardar);
 		
 		lblNewLabel_6 = new JLabel("Matricula");
@@ -176,8 +176,21 @@ public class frmOperador extends JFrame {
 				
 			}
 		});
-		btnEliminar.setBounds(385, 239, 125, 44);
+		btnEliminar.setBounds(385, 129, 125, 44);
 		contentPane.add(btnEliminar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Operador operador = new Operador();
+				
+				operador.readOne(Integer.parseInt(txtIdOperador.getText()), txtTipoDocumento, txtNumeroDocumento, txtNombres,
+						txtApellidos, txtDireccion, txtCorreo, txtTelefono, txtMatricula);
+				
+			}
+		});
+		btnConsultar.setBounds(385, 211, 125, 46);
+		contentPane.add(btnConsultar);
 	}
-
 }
