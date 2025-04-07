@@ -40,6 +40,7 @@ public class frmPromotor extends JFrame {
 	 * Create the frame.
 	 */
 	public frmPromotor() {
+		this.setExtendedState(MAXIMIZED_BOTH);
 		setTitle("Promotor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 491, 381);

@@ -1,5 +1,6 @@
 package model;
 
+import java.security.Principal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,10 +9,15 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import Views.frmLogin;
+import Views.frmPrincipal;
+import Views.frmPromotor;
 import controler.Conexion;
 
 public class Promotor {
-
+	
+	
+	public String contrasena;
 	public int idPromotor;
 	public String nombre;
 	public String apellido;
@@ -230,6 +236,41 @@ public class Promotor {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	public void controlAcceso(int documento, String contrasena) {
+		frmPromotor promotor = new frmPromotor();
+
+		
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblpromotores WHERE numerodocumento = ? and contrasena = ?" ;
+		
+		try {
+			dbConnection = conector.conectarDB(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+			
+			pst.setInt(1, documento);
+			pst.setString(2, contrasena);
+			ResultSet rs = pst.executeQuery(); //Almacenamiento temporal
+			
+			if (rs.next()) {
+			frmPrincipal principal = new frmPrincipal();
+			principal.show();
+			
+				
+			}else {
+				JOptionPane.showMessageDialog(null,"Usuario no existente..");
+			}
+		
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+	
+	
 	}
 	
 }
