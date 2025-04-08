@@ -106,13 +106,13 @@ public class Promotor {
 	}
 	
 	public void create(int tipodocumento, int documento, String nombre, String apellido ,String direccion,
-			String correopersonal, String correocorp, String fechanacimiento, String telefono) {
+			String correopersonal, String correocorp, String fechanacimiento, String telefono, String Contrasena) {
 			
 			
 			Connection dbConnection = null;
 			PreparedStatement pst = null; 
 			
-			String script = "insert into tblpromotores(tipodocumento,numerodocumento,nombre,apellido,direccion,correo,correocorporativo,fechanacimiento,telefono) values (?,?,?,?,?,?,?,?,?)";
+			String script = "insert into tblpromotores(tipodocumento,numerodocumento,nombre,apellido,direccion,correo,correocorporativo,fechanacimiento,telefono,contrasena) values (?,?,?,?,?,?,?,?,?,?)";
 			
 			try {
 				dbConnection = conector.conectarDB();
@@ -128,6 +128,7 @@ public class Promotor {
 				pst.setString(7, correocorp);
 				pst.setString(8, fechanacimiento);
 				pst.setString(9, telefono);
+				pst.setString(10, Contrasena);
 				
 				pst.executeUpdate();
 				
@@ -201,12 +202,12 @@ public class Promotor {
 	}
 	
 	public void update(int idPromotor , int tipodocumento, int documento, String nombre, String apellido ,String direccion,
-			String correopersonal, String correocorp, String fechanacimiento, String telefono) {
+			String correopersonal, String correocorp, String fechanacimiento, String telefono, String contrasena ) {
 
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // preparar la trx
 
-		String script = "update tblpromotores set tipodocumento = ?, numerodocumento = ?, nombre = ?, apellido = ?, direccion = ?, correo = ?, correocorporativo = ?, fechanacimiento = ?, telefono = ?  where idpromotor = ?;";
+		String script = "update tblpromotores set tipodocumento = ?, numerodocumento = ?, nombre = ?, apellido = ?, direccion = ?, correo = ?, correocorporativo = ?, fechanacimiento = ?, telefono = ?, contrasena = ?  where idpromotor = ?;";
 
 		try {
 			dbConnection = conector.conectarDB(); // abrir la conexion
@@ -222,7 +223,8 @@ public class Promotor {
 			pst.setString(7, correocorp);
 			pst.setString(8, fechanacimiento);
 			pst.setString(9, telefono);
-			pst.setInt(10, idPromotor);
+			pst.setString(10, contrasena);
+			pst.setInt(11, idPromotor);
 			
 			
 			// confirmar la operacion
@@ -230,7 +232,7 @@ public class Promotor {
 
 			if (resp == JOptionPane.YES_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showConfirmDialog(null, "fila actualizada");
+				JOptionPane.showMessageDialog(null, "fila actualizada");
 			}
 
 		} catch (SQLException e) {

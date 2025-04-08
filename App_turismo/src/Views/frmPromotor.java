@@ -138,7 +138,7 @@ contentPane.setLayout(null);
 				Promotor cr = new Promotor();
 				cr.create(Integer.parseInt(txtTipoDocumento.getText()), Integer.parseInt(txtDocumento.getText()),txtNombre.getText(), 
 						txtApellido.getText() , txtDireccion.getText(), txtCorreoPersonal.getText(),
-						txtCorreoCorp.getText(), txtFechaNacimiento.getText(), txtTelefono.getText());
+						txtCorreoCorp.getText(), txtFechaNacimiento.getText(), txtTelefono.getText(), txtContrasena.getText());
 				
 				txtTipoDocumento.setText("");
 				txtDocumento.setText("");
@@ -149,6 +149,7 @@ contentPane.setLayout(null);
 				txtCorreoCorp.setText("");
 				txtFechaNacimiento.setText("");
 				txtTelefono.setText("");
+				txtContrasena.setText("");
 			}
 		});
 		btnGuardar.setBounds(251, 184, 110, 37);
@@ -209,7 +210,7 @@ contentPane.setLayout(null);
 				
 				promotor.update(Integer.parseInt(txtIdPromotor.getText()), Integer.parseInt(txtTipoDocumento.getText()), Integer.parseInt(txtDocumento.getText()),
 						txtNombre.getText(), txtApellido.getText() , txtDireccion.getText(), txtCorreoPersonal.getText(),
-						txtCorreoCorp.getText(), txtFechaNacimiento.getText(), txtTelefono.getText());
+						txtCorreoCorp.getText(), txtFechaNacimiento.getText(), txtTelefono.getText(),txtContrasena.getText());
 				
 			}
 		});
