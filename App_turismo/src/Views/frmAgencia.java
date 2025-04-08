@@ -39,6 +39,7 @@ public class frmAgencia extends JFrame {
 	 * Create the frame.
 	 */
 	public frmAgencia() {
+		setTitle("Agencias");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -97,27 +98,27 @@ contentPane.setLayout(null);
 		btnGuardar.setBounds(249, 32, 111, 35);
 		contentPane.add(btnGuardar);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre:");
+		JLabel lblNewLabel_1 = new JLabel("Nombre");
 		lblNewLabel_1.setBounds(27, 26, 62, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblCorreo = new JLabel("Correo:");
+		JLabel lblCorreo = new JLabel("Correo");
 		lblCorreo.setBounds(27, 53, 46, 14);
 		contentPane.add(lblCorreo);
 		
-		JLabel lblTelefono = new JLabel("Telefono:");
+		JLabel lblTelefono = new JLabel("Telefono");
 		lblTelefono.setBounds(27, 78, 71, 14);
 		contentPane.add(lblTelefono);
 		
-		JLabel lblDireccion = new JLabel("Direccion:");
+		JLabel lblDireccion = new JLabel("Direccion");
 		lblDireccion.setBounds(27, 103, 60, 14);
 		contentPane.add(lblDireccion);
 		
-		JLabel lblWeb = new JLabel("Web:");
+		JLabel lblWeb = new JLabel("Web");
 		lblWeb.setBounds(27, 128, 46, 14);
 		contentPane.add(lblWeb);
 		
-		JLabel lblIdcompania = new JLabel("Idcompañia:");
+		JLabel lblIdcompania = new JLabel("Id Compañia");
 		lblIdcompania.setBounds(27, 159, 69, 14);
 		contentPane.add(lblIdcompania);
 		
@@ -141,7 +142,7 @@ contentPane.setLayout(null);
 		contentPane.add(txtIdAgencia);
 		txtIdAgencia.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Id Agencia :");
+		JLabel lblNewLabel = new JLabel("Id Agencia ");
 		lblNewLabel.setBounds(27, 190, 71, 14);
 		contentPane.add(lblNewLabel);
 		

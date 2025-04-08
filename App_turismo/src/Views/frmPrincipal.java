@@ -50,7 +50,7 @@ public class frmPrincipal extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				frmAgencia agencia = new frmAgencia();
 				
-				agencia.show();
+				agencia.setVisible(true);
 				
 				
 			}
@@ -64,7 +64,7 @@ public class frmPrincipal extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				frmTipoMedio tipoMedios = new frmTipoMedio();
 				
-				tipoMedios.show();
+				tipoMedios.setVisible(true);
 				
 			}
 		});
@@ -77,7 +77,7 @@ public class frmPrincipal extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				frmCliente cliente = new frmCliente();
 				
-				cliente.show();
+				cliente.setVisible(true);
 				
 			}
 		});
@@ -90,7 +90,7 @@ public class frmPrincipal extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				frmPromotor promotores = new frmPromotor();
 				
-				promotores.show();
+				promotores.setVisible(true);
 			}
 		});
 		btnPromotores.setBounds(240, 22, 135, 40);
@@ -102,7 +102,7 @@ public class frmPrincipal extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				frmMedio medios = new frmMedio();
 				
-				medios.show();
+				medios.setVisible(true);
 			}
 		});
 		btnMedios.setBounds(240, 289, 135, 40);
@@ -114,7 +114,7 @@ public class frmPrincipal extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				frmTransporte transportes = new frmTransporte();
 				
-				transportes.show();
+				transportes.setVisible(true);
 				
 			}
 		});
@@ -127,7 +127,7 @@ public class frmPrincipal extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				frmPaquete paquetes = new frmPaquete();
 				
-				paquetes.show();
+				paquetes.setVisible(true);
 			}
 		});
 		btnPaquetes.setBounds(240, 191, 135, 40);
@@ -139,7 +139,7 @@ public class frmPrincipal extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				frmOperador operadores = new frmOperador();
 				
-				operadores.show();
+				operadores.setVisible(true);
 			}
 			
 		});
@@ -152,7 +152,7 @@ public class frmPrincipal extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				frmCompania compania = new frmCompania();
 				
-				compania.show();
+				compania.setVisible(true);
 				
 			}
 		});
@@ -165,7 +165,7 @@ public class frmPrincipal extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				frmTipoTransporte tipoTransportes = new frmTipoTransporte();
 				
-				tipoTransportes.show();
+				tipoTransportes.setVisible(true);
 				
 			}
 		});

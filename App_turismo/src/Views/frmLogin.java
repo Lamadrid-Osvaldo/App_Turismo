@@ -56,16 +56,16 @@ public class frmLogin extends JFrame {
 		contentPane.setLayout(null);
 		
 		txtUser = new JTextField();
-		txtUser.setBounds(174, 41, 86, 20);
+		txtUser.setBounds(174, 41, 125, 28);
 		contentPane.add(txtUser);
 		txtUser.setColumns(10);
 		
 		pswPass = new JPasswordField();
-		pswPass.setBounds(174, 96, 86, 20);
+		pswPass.setBounds(174, 96, 125, 28);
 		contentPane.add(pswPass);
 		
 		JLabel lblNewLabel = new JLabel("Usuario");
-		lblNewLabel.setBounds(61, 44, 69, 14);
+		lblNewLabel.setBounds(61, 48, 69, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Contraseña");
@@ -82,7 +82,7 @@ public class frmLogin extends JFrame {
 				
 			}
 		});
-		btnIngresar.setBounds(174, 164, 112, 38);
+		btnIngresar.setBounds(174, 164, 137, 52);
 		contentPane.add(btnIngresar);
 	}
 }

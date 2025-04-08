@@ -43,7 +43,7 @@ public class frmMedio extends JFrame {
 	 * Create the frame.
 	 */
 	public frmMedio() {
-		setTitle("medio");
+		setTitle("Medios");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 569, 374);
 		contentPane = new JPanel();
@@ -53,29 +53,29 @@ public class frmMedio extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Nombre");
-		lblNewLabel.setBounds(53, 44, 46, 14);
+		lblNewLabel.setBounds(45, 44, 61, 14);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("observaciones");
-		lblNewLabel_1.setBounds(53, 87, 75, 14);
+		JLabel lblNewLabel_1 = new JLabel("Observaciones");
+		lblNewLabel_1.setBounds(45, 87, 86, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Id Tipo Medios");
-		lblNewLabel_2.setBounds(45, 126, 105, 14);
+		lblNewLabel_2.setBounds(45, 126, 86, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(133, 41, 86, 20);
+		txtNombre.setBounds(151, 41, 105, 20);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtObservaciones = new JTextField();
-		txtObservaciones.setBounds(151, 84, 86, 20);
+		txtObservaciones.setBounds(151, 84, 105, 20);
 		contentPane.add(txtObservaciones);
 		txtObservaciones.setColumns(10);
 		
 		txtIdTipoMedios = new JTextField();
-		txtIdTipoMedios.setBounds(151, 123, 86, 20);
+		txtIdTipoMedios.setBounds(151, 123, 105, 20);
 		contentPane.add(txtIdTipoMedios);
 		txtIdTipoMedios.setColumns(10);
 		
@@ -97,12 +97,12 @@ public class frmMedio extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		txtIdMedios = new JTextField();
-		txtIdMedios.setBounds(151, 178, 86, 20);
+		txtIdMedios.setBounds(151, 178, 105, 20);
 		contentPane.add(txtIdMedios);
 		txtIdMedios.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Id Medios");
-		lblNewLabel_3.setBounds(53, 181, 61, 14);
+		lblNewLabel_3.setBounds(45, 181, 61, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JButton btnEliminar = new JButton("Eliminar");

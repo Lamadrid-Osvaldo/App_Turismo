@@ -57,7 +57,7 @@ public class frmPaquete extends JFrame {
 	 * Create the frame.
 	 */
 	public frmPaquete() {
-		setTitle("Paquete");
+		setTitle("Paquetes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 691, 495);
 		contentPane = new JPanel();
@@ -67,58 +67,58 @@ public class frmPaquete extends JFrame {
 		contentPane.setLayout(null);
 		
 		txtIdDestino = new JTextField();
-		txtIdDestino.setBounds(251, 27, 86, 20);
+		txtIdDestino.setBounds(214, 27, 123, 20);
 		contentPane.add(txtIdDestino);
 		txtIdDestino.setColumns(10);
 		
 		txtIdOrigen = new JTextField();
 		txtIdOrigen.setColumns(10);
-		txtIdOrigen.setBounds(540, 27, 86, 20);
+		txtIdOrigen.setBounds(519, 27, 107, 20);
 		contentPane.add(txtIdOrigen);
 		
 		txtFechaventa = new JTextField();
 		txtFechaventa.setColumns(10);
-		txtFechaventa.setBounds(251, 65, 86, 20);
+		txtFechaventa.setBounds(214, 65, 123, 20);
 		contentPane.add(txtFechaventa);
 		
 		txtHoraventa = new JTextField();
 		txtHoraventa.setColumns(10);
-		txtHoraventa.setBounds(540, 65, 86, 20);
+		txtHoraventa.setBounds(519, 65, 107, 20);
 		contentPane.add(txtHoraventa);
 		
 		txtFechaejecucion = new JTextField();
 		txtFechaejecucion.setColumns(10);
-		txtFechaejecucion.setBounds(251, 102, 86, 20);
+		txtFechaejecucion.setBounds(214, 102, 123, 20);
 		contentPane.add(txtFechaejecucion);
 		
 		txtHorasalida = new JTextField();
 		txtHorasalida.setColumns(10);
-		txtHorasalida.setBounds(540, 96, 86, 20);
+		txtHorasalida.setBounds(519, 96, 107, 20);
 		contentPane.add(txtHorasalida);
 		
 		txtObservaciones = new JTextField();
 		txtObservaciones.setColumns(10);
-		txtObservaciones.setBounds(251, 138, 86, 20);
+		txtObservaciones.setBounds(214, 138, 123, 20);
 		contentPane.add(txtObservaciones);
 		
 		txtIdclientes = new JTextField();
 		txtIdclientes.setColumns(10);
-		txtIdclientes.setBounds(540, 138, 86, 20);
+		txtIdclientes.setBounds(519, 138, 107, 20);
 		contentPane.add(txtIdclientes);
 		
 		txtIdagencia = new JTextField();
 		txtIdagencia.setColumns(10);
-		txtIdagencia.setBounds(251, 174, 86, 20);
+		txtIdagencia.setBounds(214, 174, 123, 20);
 		contentPane.add(txtIdagencia);
 		
 		txtMatricula = new JTextField();
 		txtMatricula.setColumns(10);
-		txtMatricula.setBounds(540, 174, 86, 20);
+		txtMatricula.setBounds(519, 174, 107, 20);
 		contentPane.add(txtMatricula);
 		
 		txtIdmedios = new JTextField();
 		txtIdmedios.setColumns(10);
-		txtIdmedios.setBounds(251, 211, 86, 20);
+		txtIdmedios.setBounds(214, 211, 123, 20);
 		contentPane.add(txtIdmedios);
 		
 		JLabel lblNewLabel = new JLabel("Id Destino");
@@ -130,12 +130,12 @@ public class frmPaquete extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		txtIdpromotor = new JTextField();
-		txtIdpromotor.setBounds(540, 211, 86, 20);
+		txtIdpromotor.setBounds(519, 211, 107, 20);
 		contentPane.add(txtIdpromotor);
 		txtIdpromotor.setColumns(10);
 		
 		txtPrecio = new JTextField();
-		txtPrecio.setBounds(251, 253, 86, 20);
+		txtPrecio.setBounds(214, 253, 123, 20);
 		contentPane.add(txtPrecio);
 		txtPrecio.setColumns(10);
 		
@@ -152,7 +152,7 @@ public class frmPaquete extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Hora de salida");
-		lblNewLabel_5.setBounds(423, 105, 92, 14);
+		lblNewLabel_5.setBounds(423, 99, 92, 14);
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Observaciones");
@@ -215,7 +215,7 @@ public class frmPaquete extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(540, 253, 86, 20);
+		txtCodigo.setBounds(519, 253, 107, 20);
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		

@@ -52,6 +52,7 @@ public class frmOperador extends JFrame {
 	 * Create the frame.
 	 */
 	public frmOperador() {
+		setTitle("Operadores");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 597, 388);
 		contentPane = new JPanel();
@@ -61,7 +62,7 @@ public class frmOperador extends JFrame {
 		contentPane.setLayout(null);
 		
 		txtTipoDocumento = new JTextField();
-		txtTipoDocumento.setBounds(215, 37, 86, 20);
+		txtTipoDocumento.setBounds(181, 37, 120, 20);
 		contentPane.add(txtTipoDocumento);
 		txtTipoDocumento.setColumns(10);
 		
@@ -74,7 +75,7 @@ public class frmOperador extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		txtNumeroDocumento = new JTextField();
-		txtNumeroDocumento.setBounds(215, 68, 86, 20);
+		txtNumeroDocumento.setBounds(181, 68, 120, 20);
 		contentPane.add(txtNumeroDocumento);
 		txtNumeroDocumento.setColumns(10);
 		
@@ -83,7 +84,7 @@ public class frmOperador extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		txtNombres = new JTextField();
-		txtNombres.setBounds(215, 101, 86, 20);
+		txtNombres.setBounds(181, 101, 120, 20);
 		contentPane.add(txtNombres);
 		txtNombres.setColumns(10);
 		
@@ -92,7 +93,7 @@ public class frmOperador extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		txtApellidos = new JTextField();
-		txtApellidos.setBounds(215, 132, 86, 20);
+		txtApellidos.setBounds(181, 132, 120, 20);
 		contentPane.add(txtApellidos);
 		txtApellidos.setColumns(10);
 		
@@ -101,7 +102,7 @@ public class frmOperador extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		txtDireccion = new JTextField();
-		txtDireccion.setBounds(215, 158, 86, 20);
+		txtDireccion.setBounds(181, 158, 120, 20);
 		contentPane.add(txtDireccion);
 		txtDireccion.setColumns(10);
 		
@@ -110,7 +111,7 @@ public class frmOperador extends JFrame {
 		contentPane.add(lblNewLabel_5);
 		
 		txtCorreo = new JTextField();
-		txtCorreo.setBounds(215, 183, 86, 20);
+		txtCorreo.setBounds(181, 183, 120, 20);
 		contentPane.add(txtCorreo);
 		txtCorreo.setColumns(10);
 		
@@ -119,7 +120,7 @@ public class frmOperador extends JFrame {
 		contentPane.add(lblNewLabel_8);
 		
 		txtTelefono = new JTextField();
-		txtTelefono.setBounds(215, 208, 86, 20);
+		txtTelefono.setBounds(181, 208, 120, 20);
 		contentPane.add(txtTelefono);
 		txtTelefono.setColumns(10);
 		
@@ -152,12 +153,12 @@ public class frmOperador extends JFrame {
 		contentPane.add(lblNewLabel_6);
 		
 		txtMatricula = new JTextField();
-		txtMatricula.setBounds(215, 240, 86, 20);
+		txtMatricula.setBounds(181, 240, 120, 20);
 		contentPane.add(txtMatricula);
 		txtMatricula.setColumns(10);
 		
 		txtIdOperador = new JTextField();
-		txtIdOperador.setBounds(215, 271, 86, 20);
+		txtIdOperador.setBounds(181, 271, 120, 20);
 		contentPane.add(txtIdOperador);
 		txtIdOperador.setColumns(10);
 		

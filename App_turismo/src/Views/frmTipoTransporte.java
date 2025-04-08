@@ -76,7 +76,7 @@ contentPane.setLayout(null);
 		lblNewLabel_1.setBounds(24, 47, 46, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel = new JLabel("observacion:");
+		JLabel lblNewLabel = new JLabel("Observaciones:");
 		lblNewLabel.setBounds(24, 97, 75, 14);
 		contentPane.add(lblNewLabel);
 		

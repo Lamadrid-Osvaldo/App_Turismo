@@ -257,7 +257,7 @@ public class Promotor {
 			
 			if (rs.next()) {
 			frmPrincipal principal = new frmPrincipal();
-			principal.show();
+			principal.setVisible(true);
 			
 				
 			}else {
@@ -265,7 +265,7 @@ public class Promotor {
 			}
 		
 		}catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Error : "+e.getMessage());
 		}
 		
 		

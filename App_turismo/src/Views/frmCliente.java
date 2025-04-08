@@ -73,10 +73,10 @@ contentPane.setLayout(null);
 		txtDireccion.setBounds(112, 156, 86, 20);
 		contentPane.add(txtDireccion);
 		
-		JTextField txtTelefonico = new JTextField();
-		txtTelefonico.setColumns(10);
-		txtTelefonico.setBounds(112, 187, 86, 20);
-		contentPane.add(txtTelefonico);
+		JTextField txtTelefono = new JTextField();
+		txtTelefono.setColumns(10);
+		txtTelefono.setBounds(112, 187, 86, 20);
+		contentPane.add(txtTelefono);
 		
 		JTextField txtEstadoCivil = new JTextField();
 		txtEstadoCivil.setColumns(10);
@@ -103,24 +103,24 @@ contentPane.setLayout(null);
 		txtTipoDocumento.setBounds(342, 32, 86, 20);
 		contentPane.add(txtTipoDocumento);
 		
-		JLabel lblTipoDeId = new JLabel("Tipo de documento: ");
-		lblTipoDeId.setBounds(205, 32, 127, 14);
+		JLabel lblTipoDeId = new JLabel("Tipo de documento");
+		lblTipoDeId.setBounds(220, 35, 112, 14);
 		contentPane.add(lblTipoDeId);
 		
-		JLabel lblDocumento = new JLabel("Documento:");
+		JLabel lblDocumento = new JLabel("Documento");
 		lblDocumento.setBounds(28, 35, 74, 14);
 		contentPane.add(lblDocumento);
 		
-		JLabel lblApellido = new JLabel("Apellido:");
-		lblApellido.setBounds(40, 66, 74, 14);
+		JLabel lblApellido = new JLabel("Apellido");
+		lblApellido.setBounds(28, 66, 74, 14);
 		contentPane.add(lblApellido);
 		
-		JLabel lblFechanacimiento = new JLabel("fechanacimiento:");
-		lblFechanacimiento.setBounds(205, 125, 102, 14);
+		JLabel lblFechanacimiento = new JLabel("Fecha de Nacimiento");
+		lblFechanacimiento.setBounds(218, 128, 114, 14);
 		contentPane.add(lblFechanacimiento);
 		
-		JLabel lblEstadocivil = new JLabel("estadocivil:");
-		lblEstadocivil.setBounds(205, 156, 78, 14);
+		JLabel lblEstadocivil = new JLabel("Estado Civil");
+		lblEstadocivil.setBounds(220, 159, 78, 14);
 		contentPane.add(lblEstadocivil);
 		
 		JButton btnNewButton = new JButton("Guardar");
@@ -131,7 +131,7 @@ contentPane.setLayout(null);
 				Cliente cr = new Cliente();
 				cr.create(Integer.parseInt(txtTipoDocumento.getText()), Integer.parseInt(txtDocumento.getText()), txtNombre.getText(),
 						txtApellido.getText(), txtEps.getText(), txtAlergias.getText(),txtFechaNacimiento.getText(),
-						txtCorreo.getText(), txtEstadoCivil.getText(), txtTelefonico.getText(), txtDireccion.getText());
+						txtCorreo.getText(), txtEstadoCivil.getText(), txtTelefono.getText(), txtDireccion.getText());
 				
 				txtTipoDocumento.setText("");
 				txtDocumento.setText("");
@@ -142,35 +142,35 @@ contentPane.setLayout(null);
 				txtFechaNacimiento.setText("");
 				txtCorreo.setText("");
 				txtEstadoCivil.setText("");
-				txtTelefonico.setText("");
+				txtTelefono.setText("");
 				txtDireccion.setText("");
 			}
 		});
 		btnNewButton.setBounds(237, 204, 112, 34);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre:");
-		lblNewLabel_1.setBounds(205, 63, 62, 14);
+		JLabel lblNewLabel_1 = new JLabel("Nombre");
+		lblNewLabel_1.setBounds(220, 66, 62, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblCorreo = new JLabel("Eps:");
-		lblCorreo.setBounds(205, 94, 46, 14);
+		JLabel lblCorreo = new JLabel("Eps");
+		lblCorreo.setBounds(220, 97, 46, 14);
 		contentPane.add(lblCorreo);
 		
-		JLabel lblTelefono = new JLabel("alergias:");
-		lblTelefono.setBounds(40, 97, 62, 14);
+		JLabel lblTelefono = new JLabel("Alergias");
+		lblTelefono.setBounds(28, 97, 62, 14);
 		contentPane.add(lblTelefono);
 		
-		JLabel lblDireccion = new JLabel("correo:");
-		lblDireccion.setBounds(40, 128, 74, 14);
+		JLabel lblDireccion = new JLabel("Correo");
+		lblDireccion.setBounds(28, 128, 74, 14);
 		contentPane.add(lblDireccion);
 		
-		JLabel lblWeb = new JLabel("direccion:");
-		lblWeb.setBounds(40, 159, 62, 14);
+		JLabel lblWeb = new JLabel("Direccion");
+		lblWeb.setBounds(28, 159, 62, 14);
 		contentPane.add(lblWeb);
 		
-		JLabel lblIdcompania = new JLabel("telefonico:");
-		lblIdcompania.setBounds(42, 190, 60, 14);
+		JLabel lblIdcompania = new JLabel("Telefono");
+		lblIdcompania.setBounds(28, 190, 60, 14);
 		contentPane.add(lblIdcompania);
 		
 		txtIdCliente = new JTextField();
@@ -179,7 +179,7 @@ contentPane.setLayout(null);
 		txtIdCliente.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("ID Cliente");
-		lblNewLabel.setBounds(40, 221, 62, 14);
+		lblNewLabel.setBounds(28, 224, 62, 14);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnEliminar = new JButton("Eliminar");
@@ -204,7 +204,7 @@ contentPane.setLayout(null);
 				
 				cliente.readOne(Integer.parseInt(txtIdCliente.getText()), txtTipoDocumento, txtDocumento, txtNombre, txtApellido, 
 						txtEps, txtAlergias, txtFechaNacimiento, txtCorreo, txtEstadoCivil,
-						txtTelefonico, txtDireccion);
+						txtTelefono, txtDireccion);
 			}
 		});
 		btnConsultar.setBounds(372, 204, 102, 34);
@@ -218,7 +218,7 @@ contentPane.setLayout(null);
 				
 				cliente.update(Integer.parseInt(txtIdCliente.getText()),Integer.parseInt(txtTipoDocumento.getText()), Integer.parseInt(txtDocumento.getText()), txtNombre.getText(),
 						txtApellido.getText(), txtEps.getText(), txtAlergias.getText(),txtFechaNacimiento.getText(),
-						txtCorreo.getText(), txtEstadoCivil.getText(), txtTelefonico.getText(), txtDireccion.getText());
+						txtCorreo.getText(), txtEstadoCivil.getText(), txtTelefono.getText(), txtDireccion.getText());
 				
 			}
 		});

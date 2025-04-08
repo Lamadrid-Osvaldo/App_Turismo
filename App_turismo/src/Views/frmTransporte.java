@@ -39,6 +39,7 @@ public class frmTransporte extends JFrame {
 	 * Create the frame.
 	 */
 	public frmTransporte() {
+		setTitle("Transporte");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -101,7 +102,7 @@ public class frmTransporte extends JFrame {
 				
 			}
 		});
-		btnGuardar.setBounds(274, 74, 110, 36);
+		btnGuardar.setBounds(204, 97, 110, 36);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel = new JLabel("Matricula:");
@@ -112,7 +113,7 @@ public class frmTransporte extends JFrame {
 		lblCorreo.setBounds(25, 71, 46, 14);
 		contentPane.add(lblCorreo);
 		
-		JLabel lblTelefono = new JLabel("Puestos:");
+		JLabel lblTelefono = new JLabel("Asientos");
 		lblTelefono.setBounds(25, 108, 46, 14);
 		contentPane.add(lblTelefono);
 		
@@ -124,9 +125,9 @@ public class frmTransporte extends JFrame {
 		lblWeb.setBounds(10, 167, 96, 14);
 		contentPane.add(lblWeb);
 		
-		JLabel lblIdcompania = new JLabel("Categoria:");
-		lblIdcompania.setBounds(25, 205, 60, 14);
-		contentPane.add(lblIdcompania);
+		JLabel xd = new JLabel("Categoria:");
+		xd.setBounds(25, 205, 60, 14);
+		contentPane.add(xd);
 		
 		JLabel lblIdtipo = new JLabel("id Tipo Transporte");
 		lblIdtipo.setBounds(212, 46, 96, 14);
@@ -142,7 +143,7 @@ public class frmTransporte extends JFrame {
 				
 			}
 		});
-		btnEliminar.setBounds(274, 205, 110, 36);
+		btnEliminar.setBounds(318, 145, 106, 36);
 		contentPane.add(btnEliminar);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -155,7 +156,7 @@ public class frmTransporte extends JFrame {
 				
 			}
 		});
-		btnConsultar.setBounds(274, 120, 103, 36);
+		btnConsultar.setBounds(321, 97, 103, 36);
 		contentPane.add(btnConsultar);
 		
 		btnActualizar = new JButton("Actualizar");
@@ -171,7 +172,7 @@ public class frmTransporte extends JFrame {
 				
 			}
 		});
-		btnActualizar.setBounds(274, 164, 110, 36);
+		btnActualizar.setBounds(204, 144, 110, 36);
 		contentPane.add(btnActualizar);
 		
 	}	
