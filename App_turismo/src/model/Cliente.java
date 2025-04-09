@@ -194,7 +194,9 @@ public class Cliente {
 			
 			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
 			
-			while (rs.next()) {
+			if (rs.next()) {
+				
+				do {
 				tipodocumento.setText(rs.getString(2));
 				numerodocumento.setText(rs.getString(3));
 				nombres.setText(rs.getString(4));
@@ -206,6 +208,10 @@ public class Cliente {
 				estadocivil.setText(rs.getString(10));
 				telefono.setText(rs.getString(11));
 				direccion.setText(rs.getString(12));
+				
+				} while (rs.next());
+			}else {
+				JOptionPane.showMessageDialog(null, "No se encontro el registro en la base de datos.");
 			}
 			
 			

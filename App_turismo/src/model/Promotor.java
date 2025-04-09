@@ -183,6 +183,7 @@ public class Promotor {
 			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
 			
 			while (rs.next()) {
+				
 				txtTipoDocumento.setText(rs.getString(2));
 				txtDocumento.setText(rs.getString(3));
 				Nombre.setText(rs.getString(4));
@@ -195,6 +196,7 @@ public class Promotor {
 				txtContrasena.setText(rs.getString(11));	
 			}
 			
+			//JOptionPane.showMessageDialog(null, "No se encontro el registro");
 			
 		}catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -260,6 +262,7 @@ public class Promotor {
 			if (rs.next()) {
 			frmPrincipal principal = new frmPrincipal();
 			principal.setVisible(true);
+			
 			
 				
 			}else {

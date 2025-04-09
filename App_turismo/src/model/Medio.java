@@ -120,11 +120,16 @@ public class Medio {
 			
 			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
 			
-			while (rs.next()) {
-				Nombre.setText(rs.getString(2));
-				Observaciones.setText(rs.getString(3));
-				idTipoMedios.setText(rs.getString(4));
+			if (rs.next()) {
+				do {
+					Nombre.setText(rs.getString(2));
+					Observaciones.setText(rs.getString(3));
+					idTipoMedios.setText(rs.getString(4));
+
+				} while (rs.next());
 				
+			} else {
+				JOptionPane.showMessageDialog(null, "No se encontro el registro en la base de datos.");
 			}
 			
 			
@@ -163,6 +168,8 @@ public class Medio {
 			System.out.println(e.getMessage());
 		}
 	}
+
+	
 	
 	
 }

@@ -233,7 +233,9 @@ public class Paquete {
 			
 			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
 			
-			while (rs.next()) {
+			if (rs.next()) {
+				do {
+				
 				iddestino.setText(rs.getString(2));
 				idorigen.setText(rs.getString(3));
 				fechaventa.setText(rs.getString(4));
@@ -248,6 +250,9 @@ public class Paquete {
 				idpromotor.setText(rs.getString(13));
 				precio.setText(rs.getString(14));
 				
+				} while (rs.next());
+			} else {
+				JOptionPane.showMessageDialog(null, "No se encontro el registro en la base de datos.");
 			}
 			
 			

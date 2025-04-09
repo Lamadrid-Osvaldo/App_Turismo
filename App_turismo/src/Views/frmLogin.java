@@ -46,8 +46,8 @@ public class frmLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public frmLogin() {
-		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Login");
 		setBounds(100, 100, 482, 325);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -78,11 +78,11 @@ public class frmLogin extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				
 				promotor.controlAcceso(Integer.parseInt(txtUser.getText()), pswPass.getText());
-				
+				dispose();
 				
 			}
 		});
 		btnIngresar.setBounds(174, 164, 137, 52);
 		contentPane.add(btnIngresar);
-	}
+	} 
 }

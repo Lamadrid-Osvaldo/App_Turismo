@@ -149,13 +149,18 @@ public class Agencias {
 			
 			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
 			
-			while (rs.next()) {
+			if (rs.next()) {
+				
+				do {
 				nombre.setText(rs.getString(2));
 				correo.setText(rs.getString(3));
 				telefono.setText(rs.getString(4));
 				direccion.setText(rs.getString(5));
 				web.setText(rs.getString(6));
 				idcompania.setText(rs.getString(7));
+				}while(rs.next());
+			}else {
+				JOptionPane.showMessageDialog(null, "No se encontro el registro en la base de datos.");
 			}
 			
 			

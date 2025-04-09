@@ -164,13 +164,20 @@ public class Transporte {
 			
 			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
 			
-			while (rs.next()) {
+			if (rs.next()) {
+				
+				do {
+				
 				Marca.setText(rs.getString(2));
 				Asientos.setText(rs.getString(3));
 				Modelo.setText(rs.getString(4));
 				Categoria.setText(rs.getString(5));
 				numeroMotor.setText(rs.getString(6));
 				idTipoTransportes.setText(rs.getString(7));
+				
+				} while (rs.next());
+			}else {
+				JOptionPane.showMessageDialog(null, "No se encontro el registro en la base de datos.");
 			}
 			
 			

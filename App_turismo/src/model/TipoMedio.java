@@ -105,11 +105,16 @@ public class TipoMedio {
 			
 			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
 			
-			while (rs.next()) {
+			if (rs.next()) {
+				do {
+					
 				nombre.setText(rs.getString(2));
 				observacion.setText(rs.getString(3));
+				
+				} while (rs.next());
+			}else {
+				JOptionPane.showMessageDialog(null, "No se encontro el registro en la base de datos.");
 			}
-			
 			
 		}catch (SQLException e) {
 			System.out.println(e.getMessage());

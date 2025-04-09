@@ -178,7 +178,10 @@ public class Operador {
 			
 			ResultSet rs = pst.executeQuery(); //Almacenamiento Temporal
 			
-			while (rs.next()) {
+			if(rs.next()) {
+				do {
+					
+				
 				tipoDocumento.setText(rs.getString(2));
 				numeroDocumento.setText(rs.getString(3));
 				nombres.setText(rs.getString(4));
@@ -188,6 +191,9 @@ public class Operador {
 				telefono.setText(rs.getString(8));
 				matricula.setText(rs.getString(9));
 				
+				} while (rs.next());
+			} else {
+				JOptionPane.showMessageDialog(null, "No se encontro el registro en la base de datos.");
 			}
 			
 			
